@@ -99,13 +99,13 @@ export default function Nav({}) {
             )}
           </button>
         </div>
-        <Sidebar />
+        <Sidebar onClickHambuger={onClickHambuger} />
       </div>
     </footer>
   );
 }
 
-function Sidebar({}) {
+function Sidebar({onClickHambuger}) {
   return (
     <div
       id="side-menu"
@@ -114,28 +114,56 @@ function Sidebar({}) {
       <div className="flex flex-col w-full h-full p-4 justify-evenly pb-[128px]">
         <ul>
           <div className="flex flex-col space-y-2">
-            <li>
+            <li className="group">
               <NextLink href={"/#about-me"}>
-                <div className="py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
+                <div className="flex items-center justify-center py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-t-lg">
                   About Me
+                  <span>
+                    <ChevronRightIcon className="ml-0.5 text-secondary-light group-hover:text-primary-dark group-hover:rotate-90 transition duration-300 ease-in-out h-5 w-5" />
+                  </span>
+                </div>
+                <div className="hidden group-hover:flex items-center justify-center z-[99] px-2 py-2  bg-secondary-light hover:rounded-tr-lg hover:rounded-tl-lg rounded-b-lg">
+                  <ul>
+                    <li onClick={onClickHambuger}>
+                      <NextLink href={"/#skills"}>
+                        <div className="px-4 py-2 w-full text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-center tracking-widest hover:font-semibold">
+                          Skills
+                        </div>
+                      </NextLink>
+                    </li>
+                    <li onClick={onClickHambuger}>
+                      <NextLink href={"/#recent-posts"}>
+                        <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-center tracking-widest hover:font-semibold">
+                          Recent Posts
+                        </div>
+                      </NextLink>
+                    </li>
+                    <li onClick={onClickHambuger}>
+                      <NextLink href={"/#recent-work"}>
+                        <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-center tracking-widest hover:font-semibold">
+                          Recent Work
+                        </div>
+                      </NextLink>
+                    </li>
+                  </ul>
                 </div>
               </NextLink>
             </li>
-            <li>
+            <li onClick={onClickHambuger}>
               <NextLink href={"/blogs"}>
                 <div className="py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
                   Blogs
                 </div>
               </NextLink>
             </li>
-            <li>
+            <li onClick={onClickHambuger}>
               <NextLink href={"/projects"}>
                 <div className="py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
                   Projects
                 </div>
               </NextLink>
             </li>
-            <li>
+            <li onClick={onClickHambuger}>
               <NextLink href={"/contact"}>
                 <div className="py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
                   Contact

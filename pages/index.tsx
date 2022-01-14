@@ -1,5 +1,4 @@
-
-import Vanta from "./components/Vanta"
+import Vanta from "./components/Vanta";
 import Head from "next/head";
 import Script from "next/script";
 
@@ -14,9 +13,9 @@ export default function Home() {
       <main>
         <section>
           <div className="relative w-full h-full ">
-           <Vanta/>
+            <Vanta />
             <div className="container mx-auto p-4">
-              <div className="p-4 prose max-w-[120ch] pt-24 pb-48 z-[999]">
+              <div className="p-4 prose max-w-[120ch] pt-12 sm:pt-24 pb-24 sm:pb-48 z-[999]">
                 <h1 className="text-4xl text-primary-light">
                   Welcome
                   <span className="text-secondary-light animate-pulse">.</span>
@@ -46,7 +45,19 @@ export default function Home() {
           </div>
         </section>
         <section>
-          <div className="w-full h-96 bg-secondary-dark"></div>
+          <div className="relative w-full h-96 bg-secondary-dark">
+            <div id="skills" className="container relative mx-auto p-4">
+              <div className="py-12 sm:py-24">
+                <div className="flex flex-col items-center">
+                  <h2 className="text-primary-light text-center text-2xl">
+                    My Skills
+                  </h2>
+                  <div className="h-1 w-[8.25rem] mt-2 bg-secondary-light animate-pulse"/>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>
