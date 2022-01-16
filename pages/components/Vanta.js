@@ -27,8 +27,11 @@ export default function Vanta({}) {
         })
       );
     }
+
     return () => {
-      if (vantaEffect) vantaEffect?.destory();
+      if (vantaEffect && vantaEffect.destroy()) {
+        vantaEffect?.destory();
+      }
     };
   }, [vantaEffect]);
 

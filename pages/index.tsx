@@ -1,7 +1,8 @@
 import Vanta from "./components/Vanta";
 import Head from "next/head";
 import Script from "next/script";
-import MySkills from "./components/MySkills"
+import MySkills from "./components/MySkills";
+import Card from "./components/Card";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <section>
           <div className="relative w-full h-full ">
             <Vanta />
-            <div className="container mx-auto p-4">
+            <div id="about-me" className="container mx-auto p-4">
               <div className="p-4 prose max-w-[120ch] pt-12 sm:pt-24 pb-24 sm:pb-48 z-[999]">
                 <h1 className="text-4xl text-primary-light drop-shadow-lg tracking-widest">
                   Welcome
@@ -57,13 +58,13 @@ export default function Home() {
                     My Skills
                   </h2>
                 </div>
-                <MySkills/>
+                <MySkills />
               </div>
             </div>
           </div>
         </section>
         <section>
-          <div className="relative w-full bg-primary-dark h-96">
+          <div className="relative w-full bg-primary-dark constellation">
             <div id="recent-posts" className="container relative mx-auto p-4">
               <div className="py-12 sm:py-24">
                 <div className="flex flex-col items-center mb-12">
@@ -74,14 +75,26 @@ export default function Home() {
                     Recent Posts
                   </h2>
                 </div>
-               
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
+                  <Card title="Blog post" />
+                  <Card title="Blog post" />
+                  <Card title="Blog post" />
+                  <Card title="Blog post" />
+                </div>
+                <div className="flex justify-center items-center w-full">
+                  <button
+                    className={`shadow-sm items-center mt-4 px-4 py-2 uppercase rounded-xl tracking-wide bg-alternative-light hover:bg-secondary-light hover:scale-105`}
+                  >
+                    VIEW ALL POSTS
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </section>
         <section>
-          <div className="relative w-full bg-secondary-dark h-96">
-            <div id="recent-posts" className="container relative mx-auto p-4">
+          <div className="relative w-full bg-secondary-dark">
+            <div id="recent-work" className="container relative mx-auto p-4">
               <div className="py-12 sm:py-24">
                 <div className="flex flex-col items-center mb-12">
                   <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
@@ -91,7 +104,19 @@ export default function Home() {
                     Recent Work
                   </h2>
                 </div>
-               
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
+                  <Card primary title="Recent project" />
+                  <Card primary title="Recent project" />
+                  <Card primary title="Recent project" />
+                  <Card primary title="Recent project" />
+                </div>
+                <div className="flex justify-center items-center w-full">
+                  <button
+                    className={`shadow-sm items-center mt-4 px-4 py-2 uppercase rounded-xl tracking-wide bg-secondary-light hover:bg-alternative-light hover:scale-105`}
+                  >
+                    VIEW ALL WORK
+                  </button>
+                </div>
               </div>
             </div>
           </div>

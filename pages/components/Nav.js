@@ -85,7 +85,7 @@ export default function Nav({}) {
             </div>
           </ul>
           <button
-            className="sm:hidden cursor-pointer -mr-4"
+            className="sm:hidden cursor-pointer"
             onClick={onClickHambuger}
           >
             {!openMenu ? (
