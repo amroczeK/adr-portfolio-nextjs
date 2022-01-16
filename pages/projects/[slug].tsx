@@ -1,6 +1,6 @@
 export default function Project({}) {
   return (
-    <div className="h-[81vh] constellation">
+    <div className="sm:h-[81vh] constellation">
       <section>
         <div className="relative w-full">
           <div id="recent-work" className="container relative mx-auto p-4">
