@@ -90,7 +90,7 @@ export default function () {
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <div className="w-6 h-6 bg-alternative-light flex rounded-full justify-center items-center">
-                <p className="text-primary-dark font-semibold text-lg">C#</p>
+                <p className="text-primary-dark font-semibold text-sm sm:text-lg">C#</p>
               </div>
               <h3 className="text-primary-light tracking-widest">C Sharp</h3>
             </div>
