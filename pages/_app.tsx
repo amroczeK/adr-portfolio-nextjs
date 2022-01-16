@@ -1,12 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Header from "./components/Nav"
+import Footer from "./components/Footer"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div >
+    <div>
       <Header/>
       <Component {...pageProps} />
+      <Footer/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import Vanta from "./components/Vanta";
 import Head from "next/head";
 import Script from "next/script";
+import MySkills from "./components/MySkills"
 
 export default function Home() {
   return (
@@ -16,11 +17,11 @@ export default function Home() {
             <Vanta />
             <div className="container mx-auto p-4">
               <div className="p-4 prose max-w-[120ch] pt-12 sm:pt-24 pb-24 sm:pb-48 z-[999]">
-                <h1 className="text-4xl text-primary-light">
+                <h1 className="text-4xl text-primary-light drop-shadow-lg tracking-widest">
                   Welcome
                   <span className="text-secondary-light animate-pulse">.</span>
                 </h1>
-                <p className="text-primary-light">
+                <p className="text-primary-light drop-shadow-lg">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                   scelerisque lectus massa, nec vulputate lectus posuere sit
                   amet. Aenean eu sollicitudin nunc, at posuere nisi.
@@ -30,7 +31,7 @@ export default function Home() {
                   hendrerit nibh velit, nec mattis neque vehicula non. Sed quis
                   lacinia orci.
                 </p>
-                <p className="text-primary-light">
+                <p className="text-primary-light drop-shadow-lg">
                   Ut posuere consequat ipsum vitae venenatis. Praesent dui odio,
                   condimentum at enim ut, malesuada rutrum velit. Nulla vitae
                   pulvinar nisi. Sed efficitur est magna, et dapibus ante
@@ -45,16 +46,52 @@ export default function Home() {
           </div>
         </section>
         <section>
-          <div className="relative w-full h-96 bg-secondary-dark">
+          <div className="relative w-full bg-secondary-dark">
             <div id="skills" className="container relative mx-auto p-4">
               <div className="py-12 sm:py-24">
-                <div className="flex flex-col items-center">
-                  <h2 className="text-primary-light text-center text-2xl">
+                <div className="flex flex-col items-center mb-12">
+                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                    <span className="text-secondary-light animate-pulse">
+                      {"> "}
+                    </span>
                     My Skills
                   </h2>
-                  <div className="h-1 w-[8.25rem] mt-2 bg-secondary-light animate-pulse"/>
                 </div>
-                <div></div>
+                <MySkills/>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="relative w-full bg-primary-dark h-96">
+            <div id="recent-posts" className="container relative mx-auto p-4">
+              <div className="py-12 sm:py-24">
+                <div className="flex flex-col items-center mb-12">
+                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                    <span className="text-secondary-light animate-pulse">
+                      {"> "}
+                    </span>
+                    Recent Posts
+                  </h2>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="relative w-full bg-secondary-dark h-96">
+            <div id="recent-posts" className="container relative mx-auto p-4">
+              <div className="py-12 sm:py-24">
+                <div className="flex flex-col items-center mb-12">
+                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                    <span className="text-secondary-light animate-pulse">
+                      {"> "}
+                    </span>
+                    Recent Work
+                  </h2>
+                </div>
+               
               </div>
             </div>
           </div>

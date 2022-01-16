@@ -20,7 +20,7 @@ export default function Nav({}) {
               <span className="text-secondary-light ml-2">Mroczek</span>
               <span className="text-primary-light">:~$</span>
               {/* <span className="text-secondary-light hidden group-hover:inline-block group-hover:animate-pulse">_</span> */}
-              <div className="bg-secondary-light ml-2 h-5 w-2 hidden group-hover:inline-flex group-hover:animate-pulse" />
+              <div className="bg-secondary-light ml-2 h-5 w-2 flex animate-pulse" />
             </div>
           </NextLink>
 
@@ -34,32 +34,32 @@ export default function Nav({}) {
                       <ChevronRightIcon className="ml-0.5 text-secondary-light group-hover:text-primary-dark group-hover:rotate-90 transition duration-300 ease-in-out h-5 w-5" />
                     </span>
                   </div>
-                  <div className="hidden group-hover:block absolute z-[99] px-2 py-2  bg-secondary-light rounded-tr-lg hover:rounded-tl-lg rounded-b-lg">
-                    <ul>
-                      <li>
-                        <NextLink href={"/#skills"}>
-                          <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-left tracking-widest hover:font-semibold">
-                            Skills
-                          </div>
-                        </NextLink>
-                      </li>
-                      <li>
-                        <NextLink href={"/#recent-posts"}>
-                          <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-left tracking-widest hover:font-semibold">
-                            Recent Posts
-                          </div>
-                        </NextLink>
-                      </li>
-                      <li>
-                        <NextLink href={"/#recent-work"}>
-                          <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-left tracking-widest hover:font-semibold">
-                            Recent Work
-                          </div>
-                        </NextLink>
-                      </li>
-                    </ul>
-                  </div>
                 </NextLink>
+                <div className="hidden group-hover:block absolute z-[99] px-2 py-2  bg-secondary-light rounded-tr-lg hover:rounded-tl-lg rounded-b-lg">
+                  <ul>
+                    <li>
+                      <NextLink href={"/#skills"}>
+                        <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-left tracking-widest hover:font-semibold">
+                          Skills
+                        </div>
+                      </NextLink>
+                    </li>
+                    <li>
+                      <NextLink href={"/#recent-posts"}>
+                        <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-left tracking-widest hover:font-semibold">
+                          Recent Posts
+                        </div>
+                      </NextLink>
+                    </li>
+                    <li>
+                      <NextLink href={"/#recent-work"}>
+                        <div className="px-4 py-2 text-primary-dark hover:bg-primary-dark hover:text-primary-light rounded-lg text-sm text-left tracking-widest hover:font-semibold">
+                          Recent Work
+                        </div>
+                      </NextLink>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
                 <NextLink href={"/blogs"}>
@@ -105,7 +105,7 @@ export default function Nav({}) {
   );
 }
 
-function Sidebar({onClickHambuger}) {
+function Sidebar({ onClickHambuger }) {
   return (
     <div
       id="side-menu"
