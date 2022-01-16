@@ -1,8 +1,15 @@
-import Vanta from "./components/Vanta";
+import Vanta from "../components/Vanta";
 import Head from "next/head";
 import Script from "next/script";
-import MySkills from "./components/MySkills";
-import Card from "./components/Card";
+import NextLink from "../components/NextLink";
+import MySkills from "../components/MySkills";
+import Card from "../components/Card";
+import {
+  Github,
+  Linkedin,
+  Npm,
+  Stackoverflow,
+} from "@styled-icons/simple-icons";
 
 export default function Home() {
   return (
@@ -42,6 +49,29 @@ export default function Home() {
                   sodales lorem tortor a felis. Phasellus vehicula risus massa,
                   a mattis diam molestie non.
                 </p>
+                <div className="flex justify-start items-center gap-4 mt-8">
+                  <NextLink href="https://github.com/amroczeK" target="_blank">
+                    <Github className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                  </NextLink>
+                  <NextLink
+                    href="https://www.linkedin.com/in/adrianmroczek/"
+                    target="_blank"
+                  >
+                    <Linkedin className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                  </NextLink>
+                  <NextLink
+                    href="https://stackoverflow.com/users/4134047/adr"
+                    target="_blank"
+                  >
+                    <Stackoverflow className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                  </NextLink>
+                  <NextLink
+                    href="https://www.npmjs.com/~amroczek90"
+                    target="_blank"
+                  >
+                    <Npm className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                  </NextLink>
+                </div>
               </div>
             </div>
           </div>

@@ -8,6 +8,7 @@ export default function NextLink({
   href: any,
   children?: any,
   rest?: any,
+  target?: any
 }) {
   return (
     <Link href={href}>
