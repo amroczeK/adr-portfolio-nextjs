@@ -39,9 +39,7 @@ export default function Home() {
                   the deployment & configuration of Telstra Enterprise services,
                   network elements and developed complex microservice web
                   applications enabling a scalable and resilient presentation
-                  layer for Telstra's 4G/5G RAN Networks. I am currently
-                  developing solutions for Telstra's Data Hub product with the
-                  Core and Solutions team using the latest shiny technologies.
+                  layer for Telstra's 4G/5G RAN Networks.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
                   In my spare time I am proactively learning new technologies

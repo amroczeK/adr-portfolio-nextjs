@@ -15,7 +15,8 @@ export default function Nav({}) {
     <header>
       <div className="container mx-auto p-4">
         <div className="flex sm:flex-col md:flex-row gap-4 w-full h-16 p-4 justify-between items-center">
-          <NextLink href="/">
+          
+          <NextLink className="z-[100]" href="/">
             <div className="flex items-center text-primary-light text-lg text-center font-semibold tracking-widest group">
               Adrian
               <span className="text-secondary-light ml-2">Mroczek</span>
@@ -85,7 +86,7 @@ export default function Nav({}) {
             </div>
           </ul>
           <button
-            className="sm:hidden cursor-pointer"
+            className="fixed z-[100] right-0 mr-8 sm:hidden cursor-pointer"
             onClick={onClickHambuger}
           >
             {!openMenu ? (
@@ -137,9 +138,9 @@ function Sidebar({ onClickHambuger }) {
   return (
     <div
       id="side-menu"
-      className="fixed sm:hidden z-[99] bg-primary-dark w-screen h-screen right-0 transform translate-x-full transition duration-300 ease-in-out"
+      className="fixed inset-y-0 right-0 sm:hidden z-[99] bg-primary-dark w-screen h-full transform translate-x-full transition duration-300 ease-in-out"
     >
-      <div className="flex flex-col w-full h-full p-4 justify-evenly pb-[128px]">
+      <div className="flex flex-col w-full h-full p-4 justify-evenly ">
         <ul>
           <div className="flex flex-col space-y-2">
             <li>
