@@ -51,25 +51,25 @@ export default function Home() {
                 </p>
                 <div className="flex justify-start items-center gap-4 mt-8">
                   <NextLink href="https://github.com/amroczeK" target="_blank">
-                    <Github className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                    <Github className="text-[#727377] w-8 h-8 hover:text-primary-light" />
                   </NextLink>
                   <NextLink
                     href="https://www.linkedin.com/in/adrianmroczek/"
                     target="_blank"
                   >
-                    <Linkedin className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                    <Linkedin className="text-[#727377] w-8 h-8 hover:text-primary-light" />
                   </NextLink>
                   <NextLink
                     href="https://stackoverflow.com/users/4134047/adr"
                     target="_blank"
                   >
-                    <Stackoverflow className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                    <Stackoverflow className="text-[#727377] w-8 h-8 hover:text-primary-light" />
                   </NextLink>
                   <NextLink
                     href="https://www.npmjs.com/~amroczek90"
                     target="_blank"
                   >
-                    <Npm className="text-primary-light/40 w-8 h-8 hover:text-primary-light" />
+                    <Npm className="text-[#727377] w-8 h-8 hover:text-primary-light" />
                   </NextLink>
                 </div>
               </div>

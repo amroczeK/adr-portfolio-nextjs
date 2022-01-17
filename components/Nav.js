@@ -14,7 +14,7 @@ export default function Nav({}) {
   return (
     <header>
       <div className="container mx-auto p-4">
-        <div className="flex w-full h-16 p-4 justify-between items-center">
+        <div className="flex sm:flex-col md:flex-row gap-4 w-full h-16 p-4 justify-between items-center">
           <NextLink href="/">
             <div className="flex items-center text-primary-light text-lg text-center font-semibold tracking-widest group">
               Adrian
