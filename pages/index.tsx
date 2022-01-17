@@ -30,24 +30,29 @@ export default function Home() {
                   <span className="text-secondary-light animate-pulse">.</span>
                 </h1>
                 <p className="text-primary-light drop-shadow-lg">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  scelerisque lectus massa, nec vulputate lectus posuere sit
-                  amet. Aenean eu sollicitudin nunc, at posuere nisi.
-                  Pellentesque egestas eros velit, vitae hendrerit ex fringilla
-                  vitae. Ut vehicula, augue eu vestibulum dictum, nulla sapien
-                  ornare neque, nec vestibulum tortor dui sed justo. Integer
-                  hendrerit nibh velit, nec mattis neque vehicula non. Sed quis
-                  lacinia orci.
+                  I am an experienced Software Engineer with a background in
+                  Full Stack Development, Network Engineering and a keen
+                  interest in Cyber Security.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
-                  Ut posuere consequat ipsum vitae venenatis. Praesent dui odio,
-                  condimentum at enim ut, malesuada rutrum velit. Nulla vitae
-                  pulvinar nisi. Sed efficitur est magna, et dapibus ante
-                  dapibus at. Curabitur rhoncus cursus posuere. Suspendisse
-                  blandit tellus quis libero pretium pellentesque. Sed bibendum,
-                  orci ac consectetur consequat, ex mi pellentesque justo, ut
-                  sodales lorem tortor a felis. Phasellus vehicula risus massa,
-                  a mattis diam molestie non.
+                  I've developed scalable and secure applications, automating
+                  the deployment & configuration of Telstra Enterprise services,
+                  network elements and developed complex microservice web
+                  applications enabling a scalable and resilient presentation
+                  layer for Telstra's 4G/5G RAN Networks. I am currently
+                  developing solutions for Telstra's Data Hub product with the
+                  Core and Solutions team using the latest shiny technologies.
+                </p>
+                <p className="text-primary-light drop-shadow-lg">
+                  In my spare time I am proactively learning new technologies
+                  through e-learning platforms and developing side projects. My
+                  portfolio website was developed with Next.js, Typescript,
+                  Tailwindcss, GraphCMS/GraphQL, Twilio SendGrid and deployed to
+                  Vercel.
+                </p>
+                <p className="text-primary-light drop-shadow-lg">
+                  Check out my GitHub and other developer links to follow my
+                  development journey!
                 </p>
                 <div className="flex justify-start items-center gap-4 mt-8">
                   <NextLink href="https://github.com/amroczeK" target="_blank">

@@ -21,7 +21,10 @@ import {
   Postgresql,
   Firebase,
   Amazondynamodb,
-  Mysql
+  Mysql,
+  Tailwindcss,
+  Css3,
+  Graphql
 } from "@styled-icons/simple-icons";
 
 export default function () {
@@ -54,6 +57,20 @@ export default function () {
             <div className="flex gap-2 items-center mb-1">
               <Typescript className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Typescript</h3>
+            </div>
+            <div className="flex gap-1 w-40 bg-primary-dark p-1">
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+            </div>
+            <p className="text-xs text-primary-light tracking-widest text-right">
+              Competent
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2 items-center mb-1">
+              <Graphql className="w-6 h-6 text-alternative-light" />
+              <h3 className="text-primary-light tracking-widest">GraphQL</h3>
             </div>
             <div className="flex gap-1 w-40 bg-primary-dark p-1">
               <div className="bg-secondary-light w-7 h-3" />
@@ -149,6 +166,21 @@ export default function () {
             </div>
             <p className="text-xs text-primary-light tracking-widest text-right">
               Advanced Beginner
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2 items-center mb-1">
+              <Css3 className="w-6 h-6 text-alternative-light" />
+              <h3 className="text-primary-light tracking-widest">CSS</h3>
+            </div>
+            <div className="flex gap-1 w-40 bg-primary-dark p-1">
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+            </div>
+            <p className="text-xs text-primary-light tracking-widest text-right">
+              Proficient
             </p>
           </div>
         </div>
@@ -253,6 +285,23 @@ export default function () {
             </div>
             <p className="text-xs text-primary-light tracking-widest text-right">
               Competent
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2 items-center mb-1">
+              <Tailwindcss className="w-6 h-6 text-alternative-light" />
+              <h3 className="text-primary-light tracking-widest">
+                Tailwindcss
+              </h3>
+            </div>
+            <div className="flex gap-1 w-40 bg-primary-dark p-1">
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+            </div>
+            <p className="text-xs text-primary-light tracking-widest text-right">
+              Proficient
             </p>
           </div>
         </div>
