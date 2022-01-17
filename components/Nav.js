@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useClickOutsideDropdown } from "../hooks/ClickOutsideDropdown";
 import { MenuAlt3Icon, XIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import NextLink from "./NextLink";
 
@@ -11,7 +12,7 @@ export default function Nav({}) {
     sidebar?.classList.toggle("translate-x-full");
   };
   return (
-    <footer className="">
+    <header>
       <div className="container mx-auto p-4">
         <div className="flex w-full h-16 p-4 justify-between items-center">
           <NextLink href="/">
@@ -19,7 +20,6 @@ export default function Nav({}) {
               Adrian
               <span className="text-secondary-light ml-2">Mroczek</span>
               <span className="text-primary-light">:~$</span>
-              {/* <span className="text-secondary-light hidden group-hover:inline-block group-hover:animate-pulse">_</span> */}
               <div className="bg-secondary-light ml-2 h-5 w-2 flex animate-pulse" />
             </div>
           </NextLink>
@@ -101,11 +101,39 @@ export default function Nav({}) {
         </div>
         <Sidebar onClickHambuger={onClickHambuger} />
       </div>
-    </footer>
+    </header>
   );
 }
 
 function Sidebar({ onClickHambuger }) {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const onClickDropdown = () => {
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+
+    if (!openMenu) {
+      dropdownBtn.classList.replace(
+        "text-secondary-light",
+        "text-primary-dark"
+      );
+      dropdownBtn.classList.add("rotate-90");
+      dropdownMenu.classList.replace("hidden", "flex");
+      setOpenMenu(true);
+    } else {
+      dropdownBtn.classList.remove("rotate-90");
+      dropdownBtn.classList.replace(
+        "text-primary-dark",
+        "text-secondary-light"
+      );
+      dropdownMenu.classList.replace("flex", "hidden");
+      setOpenMenu(false);
+    }
+  };
+
+  const wrapperRef = useRef(null);
+  useClickOutsideDropdown(wrapperRef, openMenu, onClickDropdown);
+
   return (
     <div
       id="side-menu"
@@ -114,16 +142,25 @@ function Sidebar({ onClickHambuger }) {
       <div className="flex flex-col w-full h-full p-4 justify-evenly pb-[128px]">
         <ul>
           <div className="flex flex-col space-y-2">
-            <li className="group">
-              <NextLink href={"/#about-me"} onClick={onClickHambuger}>
-                <div className="flex items-center justify-center py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-t-lg">
-                  About Me
-                  <span>
-                    <ChevronRightIcon className="ml-0.5 text-secondary-light group-hover:text-primary-dark group-hover:rotate-90 transition duration-300 ease-in-out h-5 w-5" />
-                  </span>
-                </div>
-              </NextLink>
-              <div className="hidden group-hover:flex items-center justify-center z-[99] px-2 py-2  bg-secondary-light hover:rounded-tr-lg hover:rounded-tl-lg rounded-b-lg">
+            <li>
+              <div className="group flex items-center justify-center py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
+                <NextLink href={"/#about-me"} onClick={onClickHambuger}>
+                  <div className="text-primary-light group-hover:text-primary-dark text-lg text-center font-semibold tracking-widest">
+                    About Me
+                  </div>
+                </NextLink>
+                <button onClick={onClickDropdown}>
+                  <ChevronRightIcon
+                    id="dropdown-btn"
+                    className="ml-0.5 text-secondary-light group-hover:text-primary-dark transition duration-300 ease-in-out h-5 w-5"
+                  />
+                </button>
+              </div>
+              <div
+                ref={wrapperRef}
+                id="dropdown-menu"
+                className="hidden mt-2 group-hover:flex items-center justify-center z-[99] px-2 py-2  bg-secondary-light rounded-lg"
+              >
                 <ul>
                   <li onClick={onClickHambuger}>
                     <NextLink href={"/#skills"}>
