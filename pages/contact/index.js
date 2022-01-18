@@ -2,7 +2,7 @@ import ContactForm from "../../components/Forms/Contact";
 
 export default function Contact({}) {
   return (
-    <div className="sm:h-[81vh] constellation">
+    <div className="constellation">
       <main>
         <section>
           <div className="relative w-full">
