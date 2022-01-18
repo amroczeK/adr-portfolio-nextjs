@@ -1,3 +1,4 @@
+import Pagination from "../../components/Pagination";
 import Card from "../../components/Card";
 
 export default function Blogs({}) {
@@ -15,16 +16,24 @@ export default function Blogs({}) {
                   Blog Posts
                 </h2>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                <Card title="POST #1" />
-                <Card title="POST #2" />
-                <Card title="POST #3" />
-                <Card title="POST #4" />
-                <Card title="POST #5" />
-                <Card title="POST #6" />
-                <Card title="POST #7" />
-                <Card title="POST #8" />
-              </div>
+              <Pagination itemsPerPage={8}>
+                <Card title="POST #1" slug="blog-post-1" />
+                <Card title="POST #2" slug="blog-post-2" />
+                <Card title="POST #3" slug="blog-post-3" />
+                <Card title="POST #4" slug="blog-post-4" />
+                <Card title="POST #5" slug="blog-post-5" />
+                <Card title="POST #6" slug="blog-post-6" />
+                <Card title="POST #7" slug="blog-post-7" />
+                <Card title="POST #8" slug="blog-post-8" />
+                <Card title="POST #1" slug="blog-post-1" />
+                <Card title="POST #2" slug="blog-post-2" />
+                <Card title="POST #3" slug="blog-post-3" />
+                <Card title="POST #4" slug="blog-post-4" />
+                <Card title="POST #5" slug="blog-post-5" />
+                <Card title="POST #6" slug="blog-post-6" />
+                <Card title="POST #7" slug="blog-post-7" />
+                <Card title="POST #8" slug="blog-post-8" />
+              </Pagination>
             </div>
           </div>
         </div>
