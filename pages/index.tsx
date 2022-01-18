@@ -4,6 +4,7 @@ import Script from "next/script";
 import NextLink from "../components/NextLink";
 import MySkills from "../components/MySkills";
 import Card from "../components/Card";
+import SearchBar from "../components/SearchBar";
 import {
   Github,
   Linkedin,
@@ -35,16 +36,14 @@ export default function Home() {
                   interest in Cyber Security.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
-                  I've developed scalable and secure applications, automating
-                  the deployment & configuration of Telstra Enterprise services,
-                  network elements and developed complex microservice web
-                  applications enabling a scalable and resilient presentation
-                  layer for Telstra's 4G/5G RAN Networks.
+                  In my spare time I am proactively learning new technologies
+                  through e-learning platforms and developing side projects. I
+                  am currently focusing on upskilling myself in AWS, Azure, GCP,
+                  Kubernetes and the latest scalable web development and
+                  database technologies.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
-                  In my spare time I am proactively learning new technologies
-                  through e-learning platforms and developing side projects. My
-                  portfolio website was developed with Next.js, Typescript,
+                  My portfolio website was developed with Next.js, Typescript,
                   Tailwindcss, GraphCMS/GraphQL, Twilio SendGrid and deployed to
                   Vercel.
                 </p>
@@ -108,6 +107,7 @@ export default function Home() {
                     Recent Posts
                   </h2>
                 </div>
+                <SearchBar placeholder="Search posts" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
                   <Card title="Blog post #1" path="blogs" slug="blog-post-1" />
                   <Card title="Blog post #2" path="blogs" slug="blog-post-2" />
@@ -139,6 +139,7 @@ export default function Home() {
                     Recent Work
                   </h2>
                 </div>
+                <SearchBar placeholder="Search projects" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
                   <Card
                     primary

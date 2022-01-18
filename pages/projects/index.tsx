@@ -1,6 +1,21 @@
+import { useState, useEffect } from "react";
+import Pagination from "../../components/Pagination";
 import Card from "../../components/Card";
+import { useWindowSize } from "../../hooks/WindowSize";
 
 export default function Projects({}) {
+  const [itemsPerPage, setItemsPerPage] = useState(4); // Default 4 per page
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    if (width <= 768) {
+      setItemsPerPage(4);
+    } else if (width > 768 && width <= 1024) {
+      setItemsPerPage(6);
+    } else if (width > 1024) {
+      setItemsPerPage(8);
+    }
+  }, [width, setItemsPerPage]);
   return (
     <div>
       <section>
@@ -15,7 +30,7 @@ export default function Projects({}) {
                   Projects
                 </h2>
               </div>
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
+              <Pagination itemsPerPage={itemsPerPage}>
                 <Card title="PROJECT #1" slug="project-1" />
                 <Card title="PROJECT #2" slug="project-2" />
                 <Card title="PROJECT #3" slug="project-3" />
@@ -24,17 +39,11 @@ export default function Projects({}) {
                 <Card title="PROJECT #6" slug="project-6" />
                 <Card title="PROJECT #7" slug="project-7" />
                 <Card title="PROJECT #8" slug="project-8" />
-              </div> */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                <Card title="PROJECT #1" slug="project-1" />
-                <Card title="PROJECT #2" slug="project-2" />
-                <Card title="PROJECT #3" slug="project-3" />
-                <Card title="PROJECT #4" slug="project-4" />
-                <Card title="PROJECT #5" slug="project-5" />
-                <Card title="PROJECT #6" slug="project-6" />
-                <Card title="PROJECT #7" slug="project-7" />
-                <Card title="PROJECT #8" slug="project-8" />
-              </div>
+                <Card title="PROJECT #9" slug="project-9" />
+                <Card title="PROJECT #10" slug="project-10" />
+                <Card title="PROJECT #11" slug="project-11" />
+                <Card title="PROJECT #12" slug="project-12" />
+              </Pagination>
             </div>
           </div>
         </div>
