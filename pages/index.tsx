@@ -31,21 +31,38 @@ export default function Home() {
                   <span className="text-secondary-light animate-pulse">.</span>
                 </h1>
                 <p className="text-primary-light drop-shadow-lg">
-                  I am an experienced Software Engineer with a background in
-                  Full Stack Development, Network Engineering and a keen
-                  interest in Cyber Security.
+                  I am an experienced{" "}
+                  <span className="text-secondary-light">
+                    Software Engineer
+                  </span>{" "}
+                  with a background in{" "}
+                  <span className="text-secondary-light">
+                    Full Stack Development
+                  </span>
+                  ,{" "}
+                  <span className="text-secondary-light">
+                    Network Engineering
+                  </span>{" "}
+                  and a keen interest in Cyber Security.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
                   In my spare time I am proactively learning new technologies
                   through e-learning platforms and developing side projects. I
-                  am currently focusing on upskilling myself in AWS, Azure, GCP,
-                  Kubernetes and the latest scalable web development and
-                  database technologies.
+                  am currently focusing on upskilling myself in{" "}
+                  <span className="text-secondary-light">
+                    AWS, Azure, GCP, Kubernetes
+                  </span>{" "}
+                  and the latest scalable web development and database
+                  technologies.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
-                  My portfolio website was developed with Next.js, Typescript,
-                  Tailwindcss, GraphCMS/GraphQL, Twilio SendGrid and deployed to
-                  Vercel.
+                  My portfolio website was developed with{" "}
+                  <span className="text-secondary-light">
+                    Next.js, Typescript, Tailwindcss, GraphCMS/GraphQL, Twilio
+                    SendGrid
+                  </span>{" "}
+                  and deployed to{" "}
+                  <span className="text-secondary-light">Vercel</span>.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
                   Check out my GitHub and other developer links to follow my
