@@ -64,9 +64,16 @@ export default function Home() {
                   and deployed to{" "}
                   <span className="text-secondary-light">Vercel</span>.
                 </p>
-                <p className="text-primary-light drop-shadow-lg">
-                  Check out my GitHub and other developer links to follow my
-                  development journey!
+                <p className="text-primary-light drop-shadow-lg underline-offset-4">
+                  Check out my{" "}
+                  <a
+                    href="https://github.com/amroczeK"
+                    target="_blank"
+                    className="text-secondary-light"
+                  >
+                    Github
+                  </a>{" "}
+                  and other developer links to follow my development journey!
                 </p>
                 <div className="flex justify-start items-center gap-4 mt-8">
                   <NextLink href="https://github.com/amroczeK" target="_blank">

@@ -215,7 +215,7 @@ export const AdditionalInformation = ({ formRegister }) => (
         name="questions"
         rows={3}
         className="shadow-sm focus:ring-alternative-dark focus:border-alternative-dark mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-        placeholder="Tell us what you want to know"
+        placeholder="Ask me anything!"
         defaultValue={""}
         {...formRegister}
       />
