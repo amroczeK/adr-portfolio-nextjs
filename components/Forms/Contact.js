@@ -56,26 +56,26 @@ export default function ContactForm() {
       }, 2000);
     }
 
-    try {
-      setLoading(true);
-      const response = await fetch("/api/sendgrid/email", {
-        method: "POST",
-        body: JSON.stringify({ ...formattedData }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response?.ok) {
-        throw response?.statusText;
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-      setError(true);
-      setTimeout(() => {
-        setError((error) => !error);
-      }, 2000);
-    }
+    // try {
+    //   setLoading(true);
+    //   const response = await fetch("/api/sendgrid/email", {
+    //     method: "POST",
+    //     body: JSON.stringify({ ...formattedData }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
+    //   if (!response?.ok) {
+    //     throw response?.statusText;
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    //   setLoading(false);
+    //   setError(true);
+    //   setTimeout(() => {
+    //     setError((error) => !error);
+    //   }, 2000);
+    // }
   };
 
   return (
