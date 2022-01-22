@@ -14,7 +14,7 @@ export default function Nav({}) {
   return (
     <header>
       <div className="container mx-auto p-4">
-        <div className="flex sm:flex-col md:flex-row gap-4 w-full p-4 justify-between items-center">
+        <div className="flex sm:flex-col lg:flex-row gap-4 w-full p-4 justify-between items-center">
           
           <NextLink className="z-[100]" href="/">
             <div className="flex items-center text-primary-light text-lg text-center font-semibold tracking-widest group">
@@ -73,6 +73,13 @@ export default function Nav({}) {
                 <NextLink href={"/projects"}>
                   <div className="px-4 py-2 text-primary-light hover:text-primary-dark text-sm text-center tracking-widest hover:font-semibold hover:bg-secondary-light rounded-lg">
                     Projects
+                  </div>
+                </NextLink>
+              </li>
+              <li>
+                <NextLink href={"/resume"}>
+                  <div className="px-4 py-2 text-primary-light hover:text-primary-dark text-sm text-center tracking-widest hover:font-semibold hover:bg-secondary-light rounded-lg">
+                    Resume
                   </div>
                 </NextLink>
               </li>
@@ -198,6 +205,13 @@ function Sidebar({ onClickHambuger }) {
               <NextLink href={"/projects"}>
                 <div className="py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
                   Projects
+                </div>
+              </NextLink>
+            </li>
+            <li onClick={onClickHambuger}>
+              <NextLink href={"/resume"}>
+                <div className="py-4 text-primary-light hover:text-primary-dark text-lg text-center font-semibold tracking-widest hover:bg-secondary-light rounded-lg">
+                  Resume
                 </div>
               </NextLink>
             </li>
