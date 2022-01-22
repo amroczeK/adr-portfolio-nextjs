@@ -93,7 +93,8 @@ export default function Resume({}) {
                 <div className="h-1 w-full bg-secondary-light" />
                 <div>
                   <h2 className="text-xl text-primary-light mb-8">Career</h2>
-                  <div>
+                  <div className="relative flex flex-col gap-12">
+                    <CareerCard />
                     <CareerCard />
                   </div>
                 </div>
@@ -106,7 +107,7 @@ export default function Resume({}) {
   );
 }
 
-function CareerCard ({}){
+function CareerCard({}) {
   return (
     <div className="relative w-full bg-primary-dark p-4 rounded-lg">
       <div className="flex w-full justify-center items-center">
@@ -115,7 +116,7 @@ function CareerCard ({}){
         </div>
       </div>
       <div className="flex flex-col mt-4">
-        <h2 className="text-primary-light">Software Engineer</h2>
+        <h2 className="text-primary-light text-lg">Software Engineer</h2>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
             <h3 className="text-secondary-light">Telstra</h3>
@@ -126,15 +127,55 @@ function CareerCard ({}){
           </div>
           <div className="flex justify-between text-alternative-light">
             <p className="text-xs">IoT Domain Engineering</p>
-            <p className="text-xs">July 2021 - Present</p>
+            <p className="text-xs text-right">July 2021 - Present</p>
           </div>
-          <p className="text-sm text-primary-light mt-4">
-            Working in the IoT Domain Engineering team developing Azure Cloud
-            Applications and products for the IoT Software Solutions group,
-            enabling businesses to utilize, visualize, analyse and share the
-            data their IoT devices generate through Telstra's NB-IoT network on
-            the Telstra Data Hub platform.
-          </p>
+          <details open={true} className="mt-4">
+            <summary className="text-secondary-light cursor-pointer">
+              <span className="text-primary-light tracking-widest drop-shadow-sm">
+                Summary
+              </span>
+            </summary>
+            <p className="text-sm text-primary-light mt-2">
+              Working in the IoT Domain Engineering team developing Azure Cloud
+              Applications and products for the IoT Software Solutions group,
+              enabling businesses to utilize, visualize, analyse and share the
+              data their IoT devices generate through Telstra's NB-IoT network
+              on the Telstra Data Hub platform.
+            </p>
+          </details>
+          <details className="mt-4">
+            <summary className="text-secondary-light cursor-pointer">
+              <span className="text-primary-light tracking-widest drop-shadow-sm">
+                Accomplishments
+              </span>
+            </summary>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 list-disc text-sm text-alternative-light mt-2 px-4">
+              <li>
+                <p className="text-sm text-primary-light sm:max-w-[30ch]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  consectetur.
+                </p>
+              </li>
+              <li>
+                <p className="text-sm text-primary-light sm:max-w-[30ch]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  consectetur.
+                </p>
+              </li>
+              <li>
+                <p className="text-sm text-primary-light sm:max-w-[30ch]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  consectetur.
+                </p>
+              </li>
+              <li>
+                <p className="text-sm text-primary-light sm:max-w-[30ch]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  consectetur.
+                </p>
+              </li>
+            </ul>
+          </details>
         </div>
       </div>
     </div>
