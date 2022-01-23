@@ -1,3 +1,5 @@
+import { GetStaticProps } from "next";
+import { GraphQLClient, gql } from "graphql-request";
 import {
   LocationMarkerIcon,
   FlagIcon,
@@ -7,8 +9,9 @@ import {
   BriefcaseIcon,
 } from "@heroicons/react/solid";
 import { Github, Linkedin } from "@styled-icons/simple-icons";
+import { IJobs, IJob } from "../../types";
 
-export default function Resume({}) {
+export default function Resume({ jobs }: { jobs: IJobs }) {
   return (
     <div>
       <section>
@@ -93,9 +96,17 @@ export default function Resume({}) {
                 <div className="h-1 w-full bg-secondary-light" />
                 <div>
                   <h2 className="text-xl text-primary-light mb-8">Career</h2>
-                  <div className="relative flex flex-col gap-12">
-                    <CareerCard />
-                    <CareerCard />
+                  <div className="relative flex flex-col">
+                    {jobs.map((e: IJob, index: number) => (
+                      <div key={index}>
+                        <CareerCard job={e} />
+                        {index !== jobs.length - 1 && (
+                          <div className="flex w-full justify-center">
+                            <div className="w-1.5 h-12 bg-secondary-light" />
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -107,7 +118,7 @@ export default function Resume({}) {
   );
 }
 
-function CareerCard({}) {
+function CareerCard({ job }: { job: IJob }) {
   return (
     <div className="relative w-full bg-primary-dark p-4 rounded-lg">
       <div className="flex w-full justify-center items-center">
@@ -116,18 +127,18 @@ function CareerCard({}) {
         </div>
       </div>
       <div className="flex flex-col mt-4">
-        <h2 className="text-primary-light text-lg">Software Engineer</h2>
+        <h2 className="text-primary-light text-lg">{job.role}</h2>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
-            <h3 className="text-secondary-light">Telstra</h3>
+            <h3 className="text-secondary-light">{job.company}</h3>
             <div className="flex gap-2 items-center">
               <LocationMarkerIcon className="w-4 h-4 text-alternative-light" />
-              <p className="text-xs text-primary-light">Perth, WA</p>
+              <p className="text-xs text-primary-light">{job.location}</p>
             </div>
           </div>
           <div className="flex justify-between text-alternative-light">
-            <p className="text-xs">IoT Domain Engineering</p>
-            <p className="text-xs text-right">July 2021 - Present</p>
+            <p className="text-xs">{job.team}</p>
+            <p className="text-xs text-right">{job.startEndDate}</p>
           </div>
           <details open={true} className="mt-4">
             <summary className="text-secondary-light cursor-pointer">
@@ -135,13 +146,7 @@ function CareerCard({}) {
                 Summary
               </span>
             </summary>
-            <p className="text-sm text-primary-light mt-2">
-              Working in the IoT Domain Engineering team developing Azure Cloud
-              Applications and products for the IoT Software Solutions group,
-              enabling businesses to utilize, visualize, analyse and share the
-              data their IoT devices generate through Telstra's NB-IoT network
-              on the Telstra Data Hub platform.
-            </p>
+            <p className="text-sm text-primary-light mt-2">{job.summary}</p>
           </details>
           <details className="mt-4">
             <summary className="text-secondary-light cursor-pointer">
@@ -150,30 +155,13 @@ function CareerCard({}) {
               </span>
             </summary>
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 list-disc text-sm text-alternative-light mt-2 px-4">
-              <li>
-                <p className="text-sm text-primary-light sm:max-w-[30ch]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                  consectetur.
-                </p>
-              </li>
-              <li>
-                <p className="text-sm text-primary-light sm:max-w-[30ch]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                  consectetur.
-                </p>
-              </li>
-              <li>
-                <p className="text-sm text-primary-light sm:max-w-[30ch]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                  consectetur.
-                </p>
-              </li>
-              <li>
-                <p className="text-sm text-primary-light sm:max-w-[30ch]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                  consectetur.
-                </p>
-              </li>
+              {job.accomplishments.map((e: string, index: number) => (
+                <li key={index}>
+                  <p className="text-sm text-primary-light sm:max-w-[30ch]">
+                    {e}
+                  </p>
+                </li>
+              ))}
             </ul>
           </details>
         </div>
@@ -181,3 +169,32 @@ function CareerCard({}) {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const query = gql`
+    query GetAllJobs {
+      jobs {
+        role
+        company
+        team
+        location
+        startEndDate
+        summary
+        accomplishments
+      }
+    }
+  `;
+
+  const data: {
+    jobs: IJobs | null;
+  } = await client.request(query);
+
+  return {
+    props: {
+      jobs: data.jobs,
+    },
+    revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
+  };
+};
