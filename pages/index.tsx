@@ -133,10 +133,10 @@ export default function Home() {
                 </div>
                 <SearchBar placeholder="Search posts" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                  <Card title="Blog post #1" path="blogs" slug="blog-post-1" />
-                  <Card title="Blog post #2" path="blogs" slug="blog-post-2" />
-                  <Card title="Blog post #3" path="blogs" slug="blog-post-3" />
-                  <Card title="Blog post #4" path="blogs" slug="blog-post-4" />
+                  <Card title="Blog post #1" path="/blogs" slug="blog-post-1" />
+                  <Card title="Blog post #2" path="/blogs" slug="blog-post-2" />
+                  <Card title="Blog post #3" path="/blogs" slug="blog-post-3" />
+                  <Card title="Blog post #4" path="/blogs" slug="blog-post-4" />
                 </div>
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/blogs">
@@ -168,25 +168,25 @@ export default function Home() {
                   <Card
                     primary
                     title="Pproject #1"
-                    path="projects"
+                    path="/projects"
                     slug="project-1"
                   />
                   <Card
                     primary
                     title="Project #2"
-                    path="projects"
+                    path="/projects"
                     slug="project-2"
                   />
                   <Card
                     primary
                     title="Project #3"
-                    path="projects"
+                    path="/projects"
                     slug="project-3"
                   />
                   <Card
                     primary
                     title="Project #4"
-                    path="projects"
+                    path="/projects"
                     slug="project-4"
                   />
                 </div>

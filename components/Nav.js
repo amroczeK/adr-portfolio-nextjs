@@ -15,7 +15,6 @@ export default function Nav({}) {
     <header>
       <div className="container mx-auto p-4">
         <div className="flex sm:flex-col md:flex-row gap-4 w-full p-4 justify-between items-center">
-          
           <NextLink className="z-[100]" href="/">
             <div className="flex items-center text-primary-light text-lg text-center font-semibold tracking-widest group">
               Adrian
@@ -86,16 +85,16 @@ export default function Nav({}) {
             </div>
           </ul>
           <button
-            className="fixed z-[100] right-0 mr-4 sm:hidden cursor-pointer"
+            className="fixed z-[100] right-0 mr-4 sm:hidden cursor-pointer group"
             onClick={onClickHambuger}
           >
             {!openMenu ? (
-              <div className="group hover:bg-secondary-light p-2 rounded-md">
-                <MenuAlt3Icon className="h-6 w-6 text-primary-light group-hover:text-primary-dark" />
+              <div className="group bg-secondary-light p-2 rounded-md group-focus:ring-1 group-focus:ring-offset-1 group-focus:ring-primary-light">
+                <MenuAlt3Icon className="h-6 w-6 text-primary-dark" />
               </div>
             ) : (
-              <div className="group hover:bg-secondary-light p-2 rounded-md">
-                <XIcon className="h-6 w-6 text-primary-light group-hover:text-primary-dark" />
+              <div className="group bg-secondary-light p-2 rounded-md group-focus:ring-1 group-focus:ring-offset-1 group-focus:ring-primary-light">
+                <XIcon className="h-6 w-6 text-primary-dark" />
               </div>
             )}
           </button>
