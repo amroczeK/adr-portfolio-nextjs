@@ -37,7 +37,7 @@ export default function Home({
           <div className="relative w-full h-full ">
             <Vanta />
             <div id="about-me" className="container mx-auto p-4">
-              <div className="p-4 prose max-w-[120ch] pt-12 sm:pt-24 pb-24 sm:pb-48 z-[999]">
+              <div className="prose max-w-[120ch] pt-12 sm:pt-24 pb-24 sm:pb-48 z-[999]">
                 <h1 className="text-4xl text-primary-light drop-shadow-lg tracking-widest">
                   Welcome
                   <span className="text-secondary-light animate-pulse">.</span>
@@ -116,10 +116,10 @@ export default function Home({
         </section>
         <section>
           <div className="relative w-full bg-secondary-dark">
-            <div id="skills" className="container relative mx-auto p-4">
+            <div id="skills" className="container relative mx-auto">
               <div className="py-12 sm:py-24">
                 <div className="flex flex-col items-center mb-12">
-                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
                     <span className="text-secondary-light animate-pulse">
                       {"> "}
                     </span>
@@ -136,7 +136,7 @@ export default function Home({
             <div id="recent-posts" className="container relative mx-auto p-4">
               <div className="py-12 sm:py-24">
                 <div className="flex flex-col items-center mb-12">
-                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
                     <span className="text-secondary-light animate-pulse">
                       {"> "}
                     </span>
@@ -167,7 +167,7 @@ export default function Home({
             <div id="recent-work" className="container relative mx-auto p-4">
               <div className="py-12 sm:py-24">
                 <div className="flex flex-col items-center mb-12">
-                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                  <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
                     <span className="text-secondary-light animate-pulse">
                       {"> "}
                     </span>
@@ -177,7 +177,7 @@ export default function Home({
                 <SearchBar placeholder="Search projects" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
                   {projects.map((e: IProject, idx: number) => (
-                    <ProjectCard key={idx} project={e} />
+                    <ProjectCard key={idx} project={e} primary={true} />
                   ))}
                 </div>
                 <div className="flex justify-center items-center w-full">

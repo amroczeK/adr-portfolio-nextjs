@@ -3,11 +3,13 @@ import NextLink from "./NextLink";
 import { IProject } from "../types/index";
 import { MDXRemote } from "next-mdx-remote";
 
-export default function ProjectCard({ project }: { project: IProject }) {
+export default function ProjectCard({ project, primary = false }: { project: IProject, primary?: Boolean }) {
   const { asPath } = useRouter();
   return (
     <div
-      className={`w-72 h-full bg-secondary-dark rounded-xl shadow-sm hover:shadow-xl cursor-pointer hover:scale-105`}
+      className={`w-72 h-full ${
+        primary ? "bg-primary-dark" : "bg-secondary-dark"
+      } bg-secondary-dark rounded-xl shadow-sm hover:shadow-xl cursor-pointer hover:scale-105`}
     >
       <NextLink
         href={`${

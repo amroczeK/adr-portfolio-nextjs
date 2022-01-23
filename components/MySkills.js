@@ -31,8 +31,8 @@ export default function () {
   return (
     <>
       <details open className="p-4">
-        <summary className="text-primary-dark cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm">
+        <summary className="text-secondary-light cursor-pointer">
+          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
             Programming Languages
           </span>
         </summary>
@@ -186,8 +186,8 @@ export default function () {
         </div>
       </details>
       <details className="p-4">
-        <summary className="text-primary-dark cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm">
+        <summary className="text-secondary-light cursor-pointer">
+          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
             Libraries and Frameworks
           </span>
         </summary>
@@ -308,8 +308,8 @@ export default function () {
       </details>
 
       <details className="p-4">
-        <summary className="text-primary-dark cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm">
+        <summary className="text-secondary-light cursor-pointer">
+          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
             Cloud Platforms
           </span>
         </summary>
@@ -376,8 +376,8 @@ export default function () {
         </div>
       </details>
       <details className="p-4">
-        <summary className="text-primary-dark cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm">
+        <summary className="text-secondary-light cursor-pointer">
+          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
             Container Platforms
           </span>
         </summary>
@@ -414,8 +414,8 @@ export default function () {
         </div>
       </details>
       <details className="p-4">
-        <summary className="text-primary-dark cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm">
+        <summary className="text-secondary-light cursor-pointer">
+          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
             Database Technologies
           </span>
         </summary>

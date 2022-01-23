@@ -18,7 +18,7 @@ export default function Project({ project }: { project: IProject }) {
                   </span>
                   {project.title}
                 </h2>
-                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light">
+                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light bg-secondary-dark px-4 py-8 rounded-lg">
                   <MDXRemote {...project.contentMarkdown} />
                 </div>
               </div>
