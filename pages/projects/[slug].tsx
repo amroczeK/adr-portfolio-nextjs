@@ -1,4 +1,10 @@
-export default function Project({}) {
+import { GetStaticProps, GetStaticPaths } from "next";
+import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import { IProjects, IProject } from "../../types";
+
+export default function Project({ project }: { project: IProject }) {
   return (
     <div className="sm:h-[81vh] constellation">
       <section>
@@ -10,8 +16,11 @@ export default function Project({}) {
                   <span className="text-secondary-light animate-pulse">
                     {"> "}
                   </span>
-                  Project Name
+                  {project.title}
                 </h2>
+                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light">
+                  <MDXRemote {...project.contentMarkdown} />
+                </div>
               </div>
             </div>
           </div>
@@ -20,3 +29,72 @@ export default function Project({}) {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const slug = params?.slug as string;
+
+  const query = gql`
+    query GetProjectBySlug($slug: String!) {
+      project(where: { slug: $slug }) {
+        title
+        slug
+        thumbnail {
+          url
+          fileName
+        }
+        content {
+          markdown
+        }
+      }
+    }
+  `;
+
+  const data: { project: IProject } = await client.request(query, {
+    slug,
+  });
+
+  if (!data.project) {
+    return {
+      notFound: true,
+    };
+  }
+
+  let project = data.project;
+
+  const contentMarkdown = await serialize(project?.content?.markdown);
+
+  return {
+    props: {
+      project: {
+        ...project,
+        contentMarkdown,
+      },
+    },
+    revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const query = gql`
+    query GetAllProjects {
+      projects {
+        slug
+      }
+    }
+  `;
+
+  const data: { projects: IProjects } = await client.request(query);
+
+  return {
+    paths: data.projects?.map(({ slug }) => {
+      return {
+        params: { slug },
+      };
+    }),
+    fallback: "blocking",
+  };
+};

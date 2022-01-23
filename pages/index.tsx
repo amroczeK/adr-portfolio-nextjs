@@ -1,9 +1,12 @@
+import { GetStaticProps } from "next";
+import { GraphQLClient, gql } from "graphql-request";
 import Vanta from "../components/Vanta";
 import Head from "next/head";
 import Script from "next/script";
 import NextLink from "../components/NextLink";
 import MySkills from "../components/MySkills";
-import Card from "../components/Card";
+import BlogCard from "../components/BlogCard";
+import ProjectCard from "../components/ProjectCard";
 import SearchBar from "../components/SearchBar";
 import {
   Github,
@@ -11,8 +14,17 @@ import {
   Npm,
   Stackoverflow,
 } from "@styled-icons/simple-icons";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import { IBlogs, IProjects, IBlog, IProject } from "../types";
 
-export default function Home() {
+export default function Home({
+  blogs,
+  projects,
+}: {
+  blogs: IBlogs;
+  projects: IProjects;
+}) {
   return (
     <div className="w-full h-full">
       <Head>
@@ -133,10 +145,9 @@ export default function Home() {
                 </div>
                 <SearchBar placeholder="Search posts" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                  <Card title="Blog post #1" path="/blogs" slug="blog-post-1" />
-                  <Card title="Blog post #2" path="/blogs" slug="blog-post-2" />
-                  <Card title="Blog post #3" path="/blogs" slug="blog-post-3" />
-                  <Card title="Blog post #4" path="/blogs" slug="blog-post-4" />
+                  {blogs.map((e: IBlog, idx: number) => (
+                    <BlogCard key={idx} blog={e} />
+                  ))}
                 </div>
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/blogs">
@@ -165,30 +176,9 @@ export default function Home() {
                 </div>
                 <SearchBar placeholder="Search projects" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                  <Card
-                    primary
-                    title="Pproject #1"
-                    path="/projects"
-                    slug="project-1"
-                  />
-                  <Card
-                    primary
-                    title="Project #2"
-                    path="/projects"
-                    slug="project-2"
-                  />
-                  <Card
-                    primary
-                    title="Project #3"
-                    path="/projects"
-                    slug="project-3"
-                  />
-                  <Card
-                    primary
-                    title="Project #4"
-                    path="/projects"
-                    slug="project-4"
-                  />
+                  {projects.map((e: IProject, idx: number) => (
+                    <ProjectCard key={idx} project={e} />
+                  ))}
                 </div>
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/projects">
@@ -207,3 +197,71 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const query = gql`
+    query GetBlogsAndProjects {
+      blogs(first: 4, orderBy: createdAt_DESC) {
+        title
+        slug
+        thumbnail {
+          url
+          fileName
+        }
+        description {
+          markdown
+        }
+        content {
+          markdown
+        }
+      }
+      projects(first: 4, orderBy: createdAt_DESC) {
+        title
+        slug
+        thumbnail {
+          url
+          fileName
+        }
+        description {
+          markdown
+        }
+        content {
+          markdown
+        }
+      }
+    }
+  `;
+
+  const data: {
+    blogs: IBlogs;
+    projects: IProjects;
+  } = await client.request(query);
+
+  let blogs = data.blogs;
+  if (blogs.length > 0) {
+    // @ts-ignore: Object is possibly 'null'.
+    for (const [index, blog] of blogs.entries()) {
+      const descMarkdown = await serialize(blog.description.markdown);
+      blogs[index].descMarkdown = descMarkdown;
+    }
+  }
+
+  let projects = data.projects;
+  if (projects.length > 0) {
+    // @ts-ignore: Object is possibly 'null'.
+    for (const [index, project] of projects.entries()) {
+      const descMarkdown = await serialize(project.description.markdown);
+      projects[index].descMarkdown = descMarkdown;
+    }
+  }
+
+  return {
+    props: {
+      blogs,
+      projects,
+    },
+    revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
+  };
+};

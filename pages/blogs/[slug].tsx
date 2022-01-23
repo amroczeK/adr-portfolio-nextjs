@@ -1,4 +1,10 @@
-export default function Blog({}) {
+import { GetStaticProps, GetStaticPaths } from "next";
+import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import { IBlogs, IBlog } from "../../types";
+
+export default function Blog({ blog }: { blog: IBlog }) {
   return (
     <div className="sm:h-[81vh] constellation">
       <section>
@@ -10,8 +16,11 @@ export default function Blog({}) {
                   <span className="text-secondary-light animate-pulse">
                     {"> "}
                   </span>
-                  Blog Name
+                  {blog.title}
                 </h2>
+                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light bg-secondary-dark px-4 py-8">
+                  <MDXRemote {...blog.contentMarkdown} />
+                </div>
               </div>
             </div>
           </div>
@@ -20,3 +29,72 @@ export default function Blog({}) {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const slug = params?.slug as string;
+
+  const query = gql`
+    query GetBlogBySlug($slug: String!) {
+      blog(where: { slug: $slug }) {
+        title
+        slug
+        thumbnail {
+          url
+          fileName
+        }
+        content {
+          markdown
+        }
+      }
+    }
+  `;
+
+  const data: { blog: IBlog } = await client.request(query, {
+    slug,
+  });
+
+  if (!data.blog) {
+    return {
+      notFound: true,
+    };
+  }
+
+  let blog = data.blog;
+
+  const contentMarkdown = await serialize(blog.content.markdown);
+
+  return {
+    props: {
+      blog: {
+        ...blog,
+        contentMarkdown,
+      },
+    },
+    revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const query = gql`
+    query GetAllProjects {
+      blogs {
+        slug
+      }
+    }
+  `;
+
+  const data: { blogs: IBlogs } = await client.request(query);
+
+  return {
+    paths: data.blogs?.map(({ slug }) => {
+      return {
+        params: { slug },
+      };
+    }),
+    fallback: "blocking",
+  };
+};

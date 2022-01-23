@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
+import { GetStaticProps } from "next";
+import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
 import Pagination from "../../components/Pagination";
-import Card from "../../components/Card";
+import ProjectCard from "../../components/ProjectCard";
 import { useWindowSize } from "../../hooks/WindowSize";
+import { IProject, IProjects } from "../../types";
 
-export default function Projects({}) {
+export default function Projects({ projects }: { projects: IProjects }) {
   const [itemsPerPage, setItemsPerPage] = useState(4); // Default 4 per page
   const { width } = useWindowSize();
 
@@ -31,18 +35,9 @@ export default function Projects({}) {
                 </h2>
               </div>
               <Pagination itemsPerPage={itemsPerPage}>
-                <Card title="PROJECT #1" slug="project-1" />
-                <Card title="PROJECT #2" slug="project-2" />
-                <Card title="PROJECT #3" slug="project-3" />
-                <Card title="PROJECT #4" slug="project-4" />
-                <Card title="PROJECT #5" slug="project-5" />
-                <Card title="PROJECT #6" slug="project-6" />
-                <Card title="PROJECT #7" slug="project-7" />
-                <Card title="PROJECT #8" slug="project-8" />
-                <Card title="PROJECT #9" slug="project-9" />
-                <Card title="PROJECT #10" slug="project-10" />
-                <Card title="PROJECT #11" slug="project-11" />
-                <Card title="PROJECT #12" slug="project-12" />
+                {projects.map((e: IProject, idx: number) => (
+                  <ProjectCard key={idx} project={e} />
+                ))}
               </Pagination>
             </div>
           </div>
@@ -51,3 +46,46 @@ export default function Projects({}) {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const query = gql`
+    query GetAllProjects {
+      projects {
+        title
+        slug
+        thumbnail {
+          url
+          fileName
+        }
+        description {
+          markdown
+        }
+        content {
+          markdown
+        }
+      }
+    }
+  `;
+
+  const data: {
+    projects: IProjects;
+  } = await client.request(query);
+
+  let projects = data.projects;
+  if (projects.length > 0) {
+    // @ts-ignore: Object is possibly 'null'.
+    for (const [index, project] of projects.entries()) {
+      const descMarkdown = await serialize(project.description.markdown);
+      projects[index].descMarkdown = descMarkdown;
+    }
+  }
+
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
+  };
+};

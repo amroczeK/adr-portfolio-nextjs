@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
+import { GetStaticProps } from "next";
+import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
 import Pagination from "../../components/Pagination";
-import Card from "../../components/Card";
+import BlogCard from "../../components/BlogCard";
 import { useWindowSize } from "../../hooks/WindowSize";
+import { IBlog, IBlogs } from "../../types";
 
-export default function Blogs({}) {
+export default function Blogs({ blogs }: { blogs: IBlogs }) {
   const [itemsPerPage, setItemsPerPage] = useState(4); // Default 4 per page
   const { width } = useWindowSize();
 
@@ -32,22 +36,9 @@ export default function Blogs({}) {
                 </h2>
               </div>
               <Pagination itemsPerPage={itemsPerPage}>
-                <Card title="POST #1" slug="blog-post-1" />
-                <Card title="POST #2" slug="blog-post-2" />
-                <Card title="POST #3" slug="blog-post-3" />
-                <Card title="POST #4" slug="blog-post-4" />
-                <Card title="POST #5" slug="blog-post-5" />
-                <Card title="POST #6" slug="blog-post-6" />
-                <Card title="POST #7" slug="blog-post-7" />
-                <Card title="POST #8" slug="blog-post-8" />
-                <Card title="POST #9" slug="blog-post-9" />
-                <Card title="POST #10" slug="blog-post-10" />
-                <Card title="POST #11" slug="blog-post-11" />
-                <Card title="POST #12" slug="blog-post-12" />
-                <Card title="POST #13" slug="blog-post-13" />
-                <Card title="POST #14" slug="blog-post-14" />
-                <Card title="POST #15" slug="blog-post-15" />
-                <Card title="POST #16" slug="blog-post-16" />
+                {blogs.map((e: IBlog, idx: number) => (
+                  <BlogCard key={idx} blog={e} />
+                ))}
               </Pagination>
             </div>
           </div>
@@ -56,3 +47,46 @@ export default function Blogs({}) {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
+
+  const query = gql`
+    query GetAllBlogs {
+      blogs {
+        title
+        slug
+        thumbnail {
+          url
+          fileName
+        }
+        description {
+          markdown
+        }
+        content {
+          markdown
+        }
+      }
+    }
+  `;
+
+  const data: {
+    blogs: IBlogs;
+  } = await client.request(query);
+
+  let blogs = data.blogs;
+  if (blogs.length > 0) {
+    // @ts-ignore: Object is possibly 'null'.
+    for (const [index, blog] of blogs.entries()) {
+      const descMarkdown = await serialize(blog.description.markdown);
+      blogs[index].descMarkdown = descMarkdown;
+    }
+  }
+
+  return {
+    props: {
+      blogs,
+    },
+    revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
+  };
+};
