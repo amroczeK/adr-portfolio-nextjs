@@ -27,7 +27,7 @@ import {
   Graphql
 } from "@styled-icons/simple-icons";
 
-export default function () {
+export default function ({small = false} : {small?: Boolean}) {
   return (
     <>
       <details open className="p-4">

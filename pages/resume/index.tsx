@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/solid";
 import { Github, Linkedin } from "@styled-icons/simple-icons";
 import { IJobs, IJob } from "../../types";
+import MySkills from "../../components/MySkills";
 
 export default function Resume({ jobs }: { jobs: IJobs }) {
   return (
@@ -72,7 +73,7 @@ export default function Resume({ jobs }: { jobs: IJobs }) {
                         </a>
                       </p>
                     </div>
-                    <div className="flex gap-2 items-center col-span-2 md:col-span-1">
+                    <div className="flex gap-2 items-center col-span-1 md:col-span-1">
                       <Github className="ml-0.5 w-5 h-5 text-alternative-light" />
                       <p className="text-xs text-primary-light">
                         <a href="https://github.com/amroczeK" target="_blank">
@@ -80,7 +81,7 @@ export default function Resume({ jobs }: { jobs: IJobs }) {
                         </a>
                       </p>
                     </div>
-                    <div className="flex gap-2 items-center col-span-2 md:col-span-1">
+                    <div className="flex gap-2 items-center col-span-1 md:col-span-1">
                       <Linkedin className="ml-0.5 w-5 h-5 text-alternative-light" />
                       <p className="text-xs text-primary-light">
                         <a
@@ -92,6 +93,11 @@ export default function Resume({ jobs }: { jobs: IJobs }) {
                       </p>
                     </div>
                   </div>
+                </div>
+                <div className="h-1 w-full bg-secondary-light" />
+                <div>
+                  <h2 className="text-xl text-primary-light">Technical Skills</h2>
+                  <MySkills/>
                 </div>
                 <div className="h-1 w-full bg-secondary-light" />
                 <div>
