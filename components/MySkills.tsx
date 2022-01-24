@@ -24,7 +24,10 @@ import {
   Mysql,
   Tailwindcss,
   Css3,
-  Graphql
+  Graphql,
+  Newrelic,
+  Pagerduty,
+  Nextdotjs
 } from "@styled-icons/simple-icons";
 
 export default function ({small = false} : {small?: Boolean}) {
@@ -32,7 +35,11 @@ export default function ({small = false} : {small?: Boolean}) {
     <>
       <details open className="p-4">
         <summary className="text-secondary-light cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
+          <span
+            className={`text-primary-light tracking-widest ${
+              !small ? "text-lg" : "text-base"
+            } drop-shadow-sm ml-1`}
+          >
             Programming Languages
           </span>
         </summary>
@@ -187,7 +194,11 @@ export default function ({small = false} : {small?: Boolean}) {
       </details>
       <details className="p-4">
         <summary className="text-secondary-light cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
+          <span
+            className={`text-primary-light tracking-widest ${
+              !small ? "text-lg" : "text-base"
+            } drop-shadow-sm ml-1`}
+          >
             Libraries and Frameworks
           </span>
         </summary>
@@ -242,8 +253,7 @@ export default function ({small = false} : {small?: Boolean}) {
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
-              {/* <ReactLogo className="w-8 h-8 text-[#61DAFB]" /> */}
-              <div className="w-6 h-6 bg-alternative-light rounded-lg" />
+              <Nextdotjs className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Next.js</h3>
             </div>
             <div className="flex gap-1 w-40 bg-primary-dark p-1">
@@ -309,7 +319,11 @@ export default function ({small = false} : {small?: Boolean}) {
 
       <details className="p-4">
         <summary className="text-secondary-light cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
+          <span
+            className={`text-primary-light tracking-widest ${
+              !small ? "text-lg" : "text-base"
+            } drop-shadow-sm ml-1`}
+          >
             Cloud Platforms
           </span>
         </summary>
@@ -373,11 +387,42 @@ export default function ({small = false} : {small?: Boolean}) {
               Competent
             </p>
           </div>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2 items-center mb-1">
+              <Newrelic className="w-6 h-6 text-alternative-light" />
+              <h3 className="text-primary-light tracking-widest">New Relic</h3>
+            </div>
+            <div className="flex gap-1 w-40 bg-primary-dark p-1">
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+            </div>
+            <p className="text-xs text-primary-light tracking-widest text-right">
+              Competent
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2 items-center mb-1">
+              <Pagerduty className="w-6 h-6 text-alternative-light" />
+              <h3 className="text-primary-light tracking-widest">Pagerduty</h3>
+            </div>
+            <div className="flex gap-1 w-40 bg-primary-dark p-1">
+              <div className="bg-secondary-light w-7 h-3" />
+              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+            </div>
+            <p className="text-xs text-primary-light tracking-widest text-right">
+              Advanced Beginner
+            </p>
+          </div>
         </div>
       </details>
       <details className="p-4">
         <summary className="text-secondary-light cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
+          <span
+            className={`text-primary-light tracking-widest ${
+              !small ? "text-lg" : "text-base"
+            } drop-shadow-sm ml-1`}
+          >
             Container Platforms
           </span>
         </summary>
@@ -415,7 +460,11 @@ export default function ({small = false} : {small?: Boolean}) {
       </details>
       <details className="p-4">
         <summary className="text-secondary-light cursor-pointer">
-          <span className="text-primary-light tracking-widest text-lg drop-shadow-sm ml-1">
+          <span
+            className={`text-primary-light tracking-widest ${
+              !small ? "text-lg" : "text-base"
+            } drop-shadow-sm ml-1`}
+          >
             Database Technologies
           </span>
         </summary>

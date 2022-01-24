@@ -27,7 +27,7 @@ export default function Resume({ jobs }: { jobs: IJobs }) {
                   Resume
                 </h1>
               </div>
-              <div className="flex flex-col py-8 px-4 gap-8 bg-secondary-dark rounded-lg">
+              <div className="flex flex-col max-w-5xl mx-auto py-8 px-4 gap-8 bg-secondary-dark rounded-lg">
                 <div className="flex flex-col sm:flex-row gap-8 justify-between">
                   <div>
                     <h2 className="flex items-center text-2xl text-left text-primary-light tracking-widest">
@@ -96,8 +96,10 @@ export default function Resume({ jobs }: { jobs: IJobs }) {
                 </div>
                 <div className="h-1 w-full bg-secondary-light" />
                 <div>
-                  <h2 className="text-xl text-primary-light">Technical Skills</h2>
-                  <MySkills/>
+                  <h2 className="text-xl text-primary-light">
+                    Technical Skills
+                  </h2>
+                  <MySkills small={true} />
                 </div>
                 <div className="h-1 w-full bg-secondary-light" />
                 <div>
@@ -160,12 +162,12 @@ function CareerCard({ job }: { job: IJob }) {
                 Accomplishments
               </span>
             </summary>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 list-disc text-sm text-alternative-light mt-2 px-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-disc list-inside text-alternative-light mt-2">
               {job.accomplishments.map((e: string, index: number) => (
                 <li key={index}>
-                  <p className="text-sm text-primary-light sm:max-w-[30ch]">
+                  <span className="text-sm text-primary-light sm:max-w-[30ch] break-words">
                     {e}
-                  </p>
+                  </span>
                 </li>
               ))}
             </ul>
