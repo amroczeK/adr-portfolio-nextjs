@@ -8,6 +8,7 @@ export interface IJob {
   location: string;
   summary: string;
   accomplishments: [string];
+  summaryMarkdown: MDXRemoteSerializeResult;
 }
 
 export interface IJobs extends Array<IJob> {

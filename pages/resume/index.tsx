@@ -1,5 +1,7 @@
 import { GetStaticProps } from "next";
 import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
 import {
   LocationMarkerIcon,
   FlagIcon,
@@ -154,7 +156,9 @@ function CareerCard({ job }: { job: IJob }) {
                 Summary
               </span>
             </summary>
-            <p className="text-sm text-primary-light mt-2">{job.summary}</p>
+            <div className="text-sm text-primary-light mt-2">
+              <MDXRemote {...job.summaryMarkdown} />
+            </div>
           </details>
           <details className="mt-4">
             <summary className="text-secondary-light cursor-pointer">
@@ -183,7 +187,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const query = gql`
     query GetAllJobs {
-      jobs {
+      jobs(orderBy: priority_ASC) {
         role
         company
         team
@@ -196,9 +200,17 @@ export const getStaticProps: GetStaticProps = async () => {
   `;
 
   const data: {
-    jobs: IJobs | null;
+    jobs: IJobs;
   } = await client.request(query);
 
+  let jobs = data.jobs;
+  if (jobs.length > 0) {
+    // @ts-ignore: Object is possibly 'null'.
+    for (const [index, job] of jobs.entries()) {
+      const summaryMarkdown = await serialize(job.summary);
+      jobs[index].summaryMarkdown = summaryMarkdown;
+    }
+  }
   return {
     props: {
       jobs: data.jobs,

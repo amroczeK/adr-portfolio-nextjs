@@ -23,9 +23,9 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
           >
             {blog.title}
           </h3>
-          <p className="text-primary-light line-clamp-3">
+          <div className="text-primary-light line-clamp-3">
             <MDXRemote {...blog.descMarkdown} />
-          </p>
+          </div>
           <button
             className={`mt-4 px-4 py-2 uppercase bg-alternative-light rounded-xl tracking-wide`}
           >
