@@ -9,12 +9,29 @@ import {
   MailIcon,
   GlobeAltIcon,
   BriefcaseIcon,
+  AcademicCapIcon,
+  StarIcon,
 } from "@heroicons/react/solid";
 import { Github, Linkedin } from "@styled-icons/simple-icons";
-import { IJobs, IJob } from "../../types";
+import {
+  IJobs,
+  IJob,
+  IEducations,
+  IEducation,
+  IAwards,
+  IAward,
+} from "../../types";
 import MySkills from "../../components/MySkills";
 
-export default function Resume({ jobs }: { jobs: IJobs }) {
+export default function Resume({
+  jobs,
+  educations,
+  awards,
+}: {
+  jobs: IJobs;
+  educations: IEducations;
+  awards: IAwards;
+}) {
   return (
     <div>
       <section>
@@ -103,7 +120,27 @@ export default function Resume({ jobs }: { jobs: IJobs }) {
                   </h2>
                   <MySkills small={true} />
                 </div>
-                <div className="h-1 w-full bg-secondary-light" />
+                <div className="h-1 w-full bg-primary-dark" />
+                <div>
+                  <h2 className="text-xl text-primary-light mb-8">Education</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-12">
+                    {educations.map((e: IEducation, index: number) => (
+                      <EducationCard key={index} education={e} />
+                    ))}
+                  </div>
+                </div>
+                <div className="h-1 w-full bg-primary-dark" />
+                <div>
+                  <h2 className="text-xl text-primary-light mb-8">
+                    Honors & Awards
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-12">
+                    {awards.map((e: IAward, index: number) => (
+                      <AwardCard key={index} award={e} />
+                    ))}
+                  </div>
+                </div>
+                <div className="h-1 w-full bg-primary-dark" />
                 <div>
                   <h2 className="text-xl text-primary-light mb-8">Career</h2>
                   <div className="relative flex flex-col">
@@ -140,14 +177,16 @@ function CareerCard({ job }: { job: IJob }) {
         <h2 className="text-primary-light text-lg">{job.role}</h2>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
-            <h3 className="text-secondary-light">{job.company}</h3>
+            <h3 className="text-secondary-light max-w-[20ch] sm:max-w-full">
+              {job.company}
+            </h3>
             <div className="flex gap-2 items-center">
               <LocationMarkerIcon className="w-4 h-4 text-alternative-light" />
               <p className="text-xs text-primary-light">{job.location}</p>
             </div>
           </div>
           <div className="flex justify-between text-alternative-light">
-            <p className="text-xs">{job.team}</p>
+            <p className="text-xs max-w-[25ch] sm:max-w-full">{job.team}</p>
             <p className="text-xs text-right">{job.startEndDate}</p>
           </div>
           <details open={true} className="mt-4">
@@ -160,21 +199,95 @@ function CareerCard({ job }: { job: IJob }) {
               <MDXRemote {...job.summaryMarkdown} />
             </div>
           </details>
+          {job.accomplishments && (
+            <details className="mt-4">
+              <summary className="text-secondary-light cursor-pointer">
+                <span className="text-primary-light tracking-widest drop-shadow-sm">
+                  Accomplishments / Responsibilities
+                </span>
+              </summary>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-disc list-inside text-alternative-light mt-2">
+                {job.accomplishments.map((e: string, index: number) => (
+                  <li key={index}>
+                    <span className="text-sm text-primary-light sm:max-w-[30ch] break-words">
+                      {e}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EducationCard({ education }: { education: IEducation }) {
+  return (
+    <div className="relative w-full bg-primary-dark p-4 rounded-lg">
+      <div className="flex w-full justify-center items-center">
+        <div className="absolute flex bg-secondary-light p-2 mb-8 rounded-full justify-center">
+          <AcademicCapIcon className="w-6 h-6 text-primary-dark" />
+        </div>
+      </div>
+      <div className="flex flex-col mt-4">
+        <h2 className="text-primary-light text-lg">{education.degree}</h2>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between">
+            <h3 className="text-secondary-light max-w-[18ch] lg:max-w-full">
+              {education.major}
+            </h3>
+            <div className="flex gap-2 items-center">
+              <LocationMarkerIcon className="w-4 h-4 text-alternative-light" />
+              <p className="text-xs text-primary-light">{education.location}</p>
+            </div>
+          </div>
+          <div className="flex justify-between text-alternative-light">
+            <p className="text-xs">{education.university}</p>
+            <p className="text-xs text-right">{education.duration}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AwardCard({ award }: { award: IAward }) {
+  return (
+    <div className="relative w-full bg-primary-dark p-4 rounded-lg">
+      <div className="flex w-full justify-center items-center">
+        <div className="absolute flex bg-secondary-light p-2 mb-8 rounded-full justify-center">
+          <StarIcon className="w-6 h-6 text-primary-dark" />
+        </div>
+      </div>
+      <div className="flex flex-col mt-4">
+        <h2 className="text-primary-light text-lg">{award.award}</h2>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between">
+            <h3 className="text-secondary-light max-w-[20ch] sm:max-w-full">
+              {award.placement}
+            </h3>
+            <div className="flex gap-2 items-center">
+              <LocationMarkerIcon className="w-4 h-4 text-alternative-light" />
+              <p className="text-xs text-primary-light">{award.location}</p>
+            </div>
+          </div>
+          <div className="flex justify-between text-alternative-light">
+            <p className="text-xs max-w-[20ch] sm:max-w-full">
+              {award.company}
+            </p>
+            <p className="text-xs text-right">{award.date}</p>
+          </div>
           <details className="mt-4">
             <summary className="text-secondary-light cursor-pointer">
               <span className="text-primary-light tracking-widest drop-shadow-sm">
-                Accomplishments
+                Summary
               </span>
             </summary>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-disc list-inside text-alternative-light mt-2">
-              {job.accomplishments.map((e: string, index: number) => (
-                <li key={index}>
-                  <span className="text-sm text-primary-light sm:max-w-[30ch] break-words">
-                    {e}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="text-sm text-primary-light mt-2">
+              <MDXRemote {...award.summaryMarkdown} />
+            </div>
           </details>
         </div>
       </div>
@@ -186,7 +299,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const client = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API!);
 
   const query = gql`
-    query GetAllJobs {
+    query GetAllJobsAndEducationAndAwards {
       jobs(orderBy: priority_ASC) {
         role
         company
@@ -196,11 +309,30 @@ export const getStaticProps: GetStaticProps = async () => {
         summary
         accomplishments
       }
+      educations {
+        university
+        degree
+        major
+        location
+        duration
+      }
+      awards {
+        award
+        company
+        location
+        placement
+        date
+        summary {
+          markdown
+        }
+      }
     }
   `;
 
   const data: {
     jobs: IJobs;
+    educations: IEducations;
+    awards: IAwards;
   } = await client.request(query);
 
   let jobs = data.jobs;
@@ -211,9 +343,19 @@ export const getStaticProps: GetStaticProps = async () => {
       jobs[index].summaryMarkdown = summaryMarkdown;
     }
   }
+  let awards = data.awards;
+  if (awards.length > 0) {
+    // @ts-ignore: Object is possibly 'null'.
+    for (const [index, award] of awards.entries()) {
+      const summaryMarkdown = await serialize(award.summary.markdown);
+      awards[index].summaryMarkdown = summaryMarkdown;
+    }
+  }
   return {
     props: {
-      jobs: data.jobs,
+      jobs,
+      educations: data.educations,
+      awards,
     },
     revalidate: 60 * 60 * 24, // Regenerate data every 24 hours
   };

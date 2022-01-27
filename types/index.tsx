@@ -24,13 +24,9 @@ export interface IBlog {
   };
   description: {
     markdown: string;
-    html: string;
-    text: string;
   };
   content: {
     markdown: string;
-    html: string;
-    text: string;
   };
   descMarkdown: MDXRemoteSerializeResult;
   contentMarkdown: MDXRemoteSerializeResult;
@@ -49,13 +45,9 @@ export interface IProject {
   };
   description: {
     markdown: string;
-    html: string;
-    text: string;
   };
   content: {
     markdown: string;
-    html: string;
-    text: string;
   };
   descMarkdown: MDXRemoteSerializeResult;
   contentMarkdown: MDXRemoteSerializeResult;
@@ -63,4 +55,32 @@ export interface IProject {
 
 export interface IProjects extends Array<IProject> {
   [index: number]: IProject;
+}
+
+export interface IEducation {
+  university: string;
+  degree: string;
+  major: string;
+  location: string;
+  duration: string;
+}
+
+export interface IEducations extends Array<IEducation> {
+  [index: number]: IEducation;
+}
+
+export interface IAward {
+  award: string;
+  placement: string;
+  company: string;
+  location: string;
+  date: string;
+  summary: {
+    markdown: string;
+  };
+  summaryMarkdown: MDXRemoteSerializeResult;
+}
+
+export interface IAwards extends Array<IAward> {
+  [index: number]: IAward;
 }
