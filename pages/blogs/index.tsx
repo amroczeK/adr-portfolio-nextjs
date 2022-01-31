@@ -28,7 +28,7 @@ export default function Blogs({ blogs }: { blogs: IBlogs }) {
           <div id="recent-work" className="container relative mx-auto p-4">
             <div className="py-12 sm:py-24">
               <div className="flex flex-col items-center mb-12">
-                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
                   <span className="text-secondary-light animate-pulse">
                     {"> "}
                   </span>
@@ -61,9 +61,6 @@ export const getStaticProps: GetStaticProps = async () => {
           fileName
         }
         description {
-          markdown
-        }
-        content {
           markdown
         }
       }

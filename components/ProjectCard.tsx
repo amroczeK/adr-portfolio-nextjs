@@ -3,28 +3,34 @@ import NextLink from "./NextLink";
 import { IProject } from "../types/index";
 import { MDXRemote } from "next-mdx-remote";
 
-export default function ProjectCard({ project, primary = false }: { project: IProject, primary?: Boolean }) {
+export default function ProjectCard({
+  project,
+  primary = false,
+}: {
+  project: IProject;
+  primary?: Boolean;
+}) {
   const { asPath } = useRouter();
   return (
-    <div
-      className={`w-72 h-full ${
-        primary ? "bg-primary-dark" : "bg-secondary-dark"
-      } bg-secondary-dark rounded-xl shadow-sm hover:shadow-xl cursor-pointer hover:scale-105`}
+    <NextLink
+      href={`${
+        asPath === "/projects"
+          ? `${asPath}/${project?.slug}`
+          : `/projects/${project?.slug}`
+      }`}
     >
-      <NextLink
-        href={`${
-          asPath === "/projects"
-            ? `${asPath}/${project?.slug}`
-            : `/projects/${project?.slug}`
-        }`}
+      <div
+        className={`flex flex-col w-72 h-full ${
+          primary ? "bg-primary-dark" : "bg-secondary-dark"
+        } bg-secondary-dark rounded-xl shadow-sm hover:shadow-xl cursor-pointer hover:scale-105`}
       >
         <img
-          className="object-contain rounded-t-xl"
+          className="object-cover w-full h-1/2 rounded-t-xl"
           src={project.thumbnail.url}
         />
         <div className="p-4">
           <h3
-            className={`text-secondary-light uppercase text-2xl drop-shadow-lg tracking-widest mb-2`}
+            className={`text-secondary-light line-clamp-2 uppercase text-xl drop-shadow-lg tracking-widest pb-2`}
           >
             {project.title}
           </h3>
@@ -32,12 +38,12 @@ export default function ProjectCard({ project, primary = false }: { project: IPr
             <MDXRemote {...project.descMarkdown} />
           </div>
           <button
-            className={`mt-4 px-4 py-2 uppercase bg-secondary-light rounded-xl tracking-wide`}
+            className={`mt-4 px-4 py-2 uppercase bg-secondary-light rounded-xl tracking-wide w-full`}
           >
             Read More
           </button>
         </div>
-      </NextLink>
-    </div>
+      </div>
+    </NextLink>
   );
 }

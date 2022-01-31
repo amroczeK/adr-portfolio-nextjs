@@ -12,13 +12,13 @@ export default function Project({ project }: { project: IProject }) {
           <div id="recent-work" className="container relative mx-auto p-4">
             <div className="py-12 sm:py-24">
               <div className="flex flex-col items-center mb-12">
-                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
                   <span className="text-secondary-light animate-pulse">
                     {"> "}
                   </span>
                   {project.title}
                 </h2>
-                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light bg-secondary-dark px-4 py-8 rounded-lg">
+                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
                   <MDXRemote {...project.contentMarkdown} />
                 </div>
               </div>

@@ -152,7 +152,7 @@ export default function Home({
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/blogs">
                     <button
-                      className={`shadow-sm items-center mt-4 px-4 py-2 uppercase rounded-xl tracking-wide bg-alternative-light hover:bg-secondary-light hover:scale-105`}
+                      className={`shadow-sm items-center mt-4 px-4 py-2 uppercase rounded-xl tracking-wide bg-alternative-light hover:scale-105`}
                     >
                       VIEW ALL POSTS
                     </button>
@@ -183,7 +183,7 @@ export default function Home({
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/projects">
                     <button
-                      className={`shadow-sm items-center mt-4 px-4 py-2 uppercase rounded-xl tracking-wide bg-secondary-light hover:bg-alternative-light hover:scale-105`}
+                      className={`shadow-sm items-center mt-4 px-4 py-2 uppercase rounded-xl tracking-wide bg-secondary-light hover:scale-105`}
                     >
                       VIEW ALL WORK
                     </button>
@@ -211,9 +211,6 @@ export const getStaticProps: GetStaticProps = async () => {
           fileName
         }
         description {
-          markdown
-        }
-        content {
           markdown
         }
       }
