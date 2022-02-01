@@ -32,7 +32,7 @@ export default function ProjectCard({
           <h3
             className={`text-secondary-light line-clamp-2 uppercase text-xl drop-shadow-lg tracking-widest pb-2`}
           >
-            {"TEST"}
+            {project.title}
           </h3>
           <div className="text-primary-light line-clamp-3">
             <MDXRemote {...project.descMarkdown} />
