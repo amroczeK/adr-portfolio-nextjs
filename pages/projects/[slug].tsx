@@ -44,9 +44,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           url
           fileName
         }
-        content {
-          markdown
-        }
+        content
       }
     }
   `;
@@ -63,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   let project = data.project;
 
-  const contentMarkdown = await serialize(project?.content?.markdown);
+  const contentMarkdown = await serialize(project.content);
 
   return {
     props: {

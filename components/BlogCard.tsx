@@ -15,7 +15,7 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
         className={`flex flex-col w-72 h-full bg-secondary-dark rounded-xl shadow-sm hover:shadow-xl cursor-pointer hover:scale-105`}
       >
         <img
-          className="object-cover w-full h-1/2 rounded-t-xl"
+          className="object-cover w-full h-1/2 max-h-[192px] rounded-t-xl"
           src={blog.thumbnail.url}
         />
         <div className="p-4">

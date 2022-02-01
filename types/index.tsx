@@ -44,9 +44,7 @@ export interface IProject {
   description: {
     markdown: string;
   };
-  content: {
-    markdown: string;
-  };
+  content:  string;
   descMarkdown: MDXRemoteSerializeResult;
   contentMarkdown: MDXRemoteSerializeResult;
 }

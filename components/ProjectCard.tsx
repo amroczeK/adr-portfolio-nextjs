@@ -25,14 +25,14 @@ export default function ProjectCard({
         } bg-secondary-dark rounded-xl shadow-sm hover:shadow-xl cursor-pointer hover:scale-105`}
       >
         <img
-          className="object-cover w-full h-1/2 rounded-t-xl"
+          className="object-cover w-full h-1/2 max-h-[192px] rounded-t-xl"
           src={project.thumbnail.url}
         />
         <div className="p-4">
           <h3
             className={`text-secondary-light line-clamp-2 uppercase text-xl drop-shadow-lg tracking-widest pb-2`}
           >
-            {project.title}
+            {"TEST"}
           </h3>
           <div className="text-primary-light line-clamp-3">
             <MDXRemote {...project.descMarkdown} />
