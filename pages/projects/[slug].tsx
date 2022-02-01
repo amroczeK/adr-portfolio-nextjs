@@ -6,7 +6,7 @@ import { IProjects, IProject } from "../../types";
 
 export default function Project({ project }: { project: IProject }) {
   return (
-    <div className="sm:h-[81vh] constellation">
+    <div className="constellation">
       <section>
         <div className="relative w-full">
           <div id="recent-work" className="container relative mx-auto p-4">
@@ -18,7 +18,7 @@ export default function Project({ project }: { project: IProject }) {
                   </span>
                   {project.title}
                 </h2>
-                <div className="text-primary-light prose mt-12 prose-headings:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
+                <div className="w-full sm:max-w-5xl sm:mx-auto text-primary-light prose mt-12 prose-headings:text-alternative-light prose-a:text-alternative-light prose-strong:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
                   <MDXRemote {...project.contentMarkdown} />
                 </div>
               </div>
