@@ -21,29 +21,27 @@ export default function Projects({ projects }: { projects: IProjects }) {
     }
   }, [width, setItemsPerPage]);
   return (
-    <div>
+    <main className="page-container">
       <section>
-        <div className="relative w-full constellation">
-          <div id="recent-work" className="container relative mx-auto p-4">
-            <div className="py-12 sm:py-24">
-              <div className="flex flex-col items-center mb-12">
-                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
-                  <span className="text-secondary-light animate-pulse">
-                    {"> "}
-                  </span>
-                  Projects
-                </h2>
-              </div>
-              <Pagination itemsPerPage={itemsPerPage}>
-                {projects.map((e: IProject, idx: number) => (
-                  <ProjectCard key={idx} project={e} />
-                ))}
-              </Pagination>
+        <div id="recent-projects" className="content-container">
+          <div className="py-12 sm:py-24">
+            <div className="flex flex-col items-center mb-12">
+              <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
+                <span className="text-secondary-light animate-pulse">
+                  {"> "}
+                </span>
+                Projects
+              </h2>
             </div>
+            <Pagination itemsPerPage={itemsPerPage}>
+              {projects.map((e: IProject, idx: number) => (
+                <ProjectCard key={idx} project={e} />
+              ))}
+            </Pagination>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

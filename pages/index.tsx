@@ -26,13 +26,13 @@ export default function Home({
   projects: IProjects;
 }) {
   return (
-    <div className="w-full h-full">
+    <div>
       <Head>
         <Script src="three.r119.min.js" />
         <Script src="vanta.net.min.js" />
       </Head>
 
-      <main>
+      <main className="grow">
         <section>
           <div className="relative w-full h-full ">
             <Vanta />

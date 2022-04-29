@@ -13,8 +13,8 @@ export default function Nav({}) {
   };
   return (
     <header>
-      <div className="container mx-auto p-4">
-        <div className="flex sm:flex-col lg:flex-row gap-4 w-full mt-2 justify-between items-center">
+      <div className="container mx-auto py-6 px-4">
+        <div className="flex sm:flex-col lg:flex-row gap-4 w-full justify-between items-center">
           
           <NextLink className="z-[100]" href="/">
             <div className="flex items-center text-primary-light text-lg text-center font-semibold tracking-widest group">

@@ -33,135 +33,131 @@ export default function Resume({
   awards: IAwards;
 }) {
   return (
-    <div>
+    <main className="page-container">
       <section>
-        <div className="relative w-full constellation">
-          <div id="recent-work" className="container relative mx-auto p-4">
-            <div className="py-12 sm:py-24">
-              <div className="flex flex-col items-center mb-12">
-                <h1 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
-                  <span className="text-secondary-light animate-pulse">
-                    {"> "}
-                  </span>
-                  Resume
-                </h1>
-              </div>
-              <div className="flex flex-col max-w-5xl mx-auto py-8 px-4 gap-8 bg-secondary-dark rounded-lg">
-                <div className="flex flex-col sm:flex-row gap-8 justify-between">
-                  <div>
-                    <h2 className="flex items-center text-2xl text-left text-primary-light tracking-widest">
-                      Adrian Mroczek
-                    </h2>
-                    <h3 className="flex items-center text-sm text-left text-secondary-light tracking-widest pt-1">
-                      Fullstack Engineer
-                    </h3>
-                    <p className="text-xs pt-2 text-alternative-light tracking-widest sm:max-w-[45ch] md:max-w-[55ch] lg:max-w-[80ch]">
-                      Experienced Software Engineer with a background in Full
-                      Stack Development, Network Engineering, DevOps and
-                      interest in Cyber Security. that loves learning and
-                      playing with new technologies.
+        <div id="resume" className="content-container">
+          <div className="py-12 sm:py-24">
+            <div className="flex flex-col items-center mb-12">
+              <h1 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
+                <span className="text-secondary-light animate-pulse">
+                  {"> "}
+                </span>
+                Resume
+              </h1>
+            </div>
+            <div className="flex flex-col max-w-5xl mx-auto py-8 px-4 gap-8 bg-secondary-dark rounded-lg">
+              <div className="flex flex-col sm:flex-row gap-8 justify-between">
+                <div>
+                  <h2 className="flex items-center text-2xl text-left text-primary-light tracking-widest">
+                    Adrian Mroczek
+                  </h2>
+                  <h3 className="flex items-center text-sm text-left text-secondary-light tracking-widest pt-1">
+                    Fullstack Engineer
+                  </h3>
+                  <p className="text-xs pt-2 text-alternative-light tracking-widest sm:max-w-[45ch] md:max-w-[55ch] lg:max-w-[80ch]">
+                    Experienced Software Engineer with a background in Full
+                    Stack Development, Network Engineering, DevOps and interest
+                    in Cyber Security. that loves learning and playing with new
+                    technologies.
+                  </p>
+                </div>
+                <div
+                  //className="flex flex-col gap-2 text-right"
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <div className="flex gap-2 items-center">
+                    <LocationMarkerIcon className="w-6 h-6 text-alternative-light" />
+                    <p className="text-xs text-primary-light">Perth, WA</p>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <FlagIcon className="w-6 h-6 text-alternative-light" />
+                    <p className="text-xs text-primary-light">Australia</p>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <CakeIcon className="w-6 h-6 text-alternative-light" />
+                    <p className="text-xs text-primary-light">09/09/1990</p>
+                  </div>
+                  <div className="flex gap-2 items-center col-span-2">
+                    <MailIcon className="w-6 h-6 text-alternative-light" />
+                    <p className="text-xs text-primary-light">
+                      mroczek9990@gmail.com
                     </p>
                   </div>
-                  <div
-                    //className="flex flex-col gap-2 text-right"
-                    className="grid grid-cols-2 gap-2"
-                  >
-                    <div className="flex gap-2 items-center">
-                      <LocationMarkerIcon className="w-6 h-6 text-alternative-light" />
-                      <p className="text-xs text-primary-light">Perth, WA</p>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <FlagIcon className="w-6 h-6 text-alternative-light" />
-                      <p className="text-xs text-primary-light">Australia</p>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <CakeIcon className="w-6 h-6 text-alternative-light" />
-                      <p className="text-xs text-primary-light">09/09/1990</p>
-                    </div>
-                    <div className="flex gap-2 items-center col-span-2">
-                      <MailIcon className="w-6 h-6 text-alternative-light" />
-                      <p className="text-xs text-primary-light">
-                        mroczek9990@gmail.com
-                      </p>
-                    </div>
-                    <div className="flex gap-2 items-center col-span-2 md:col-span-1">
-                      <GlobeAltIcon className="w-6 h-6 text-alternative-light" />
-                      <p className="text-xs text-primary-light">
-                        <a href="https://amroczek.dev" target="_blank">
-                          amroczek.dev
-                        </a>
-                      </p>
-                    </div>
-                    <div className="flex gap-2 items-center col-span-1 md:col-span-1">
-                      <Github className="ml-0.5 w-5 h-5 text-alternative-light" />
-                      <p className="text-xs text-primary-light">
-                        <a href="https://github.com/amroczeK" target="_blank">
-                          /amroczeK
-                        </a>
-                      </p>
-                    </div>
-                    <div className="flex gap-2 items-center col-span-1 md:col-span-1">
-                      <Linkedin className="ml-0.5 w-5 h-5 text-alternative-light" />
-                      <p className="text-xs text-primary-light">
-                        <a
-                          href="https://www.linkedin.com/in/adrianmroczek/"
-                          target="_blank"
-                        >
-                          /adrianmroczek
-                        </a>
-                      </p>
-                    </div>
+                  <div className="flex gap-2 items-center col-span-2 md:col-span-1">
+                    <GlobeAltIcon className="w-6 h-6 text-alternative-light" />
+                    <p className="text-xs text-primary-light">
+                      <a href="https://amroczek.dev" target="_blank">
+                        amroczek.dev
+                      </a>
+                    </p>
+                  </div>
+                  <div className="flex gap-2 items-center col-span-1 md:col-span-1">
+                    <Github className="ml-0.5 w-5 h-5 text-alternative-light" />
+                    <p className="text-xs text-primary-light">
+                      <a href="https://github.com/amroczeK" target="_blank">
+                        /amroczeK
+                      </a>
+                    </p>
+                  </div>
+                  <div className="flex gap-2 items-center col-span-1 md:col-span-1">
+                    <Linkedin className="ml-0.5 w-5 h-5 text-alternative-light" />
+                    <p className="text-xs text-primary-light">
+                      <a
+                        href="https://www.linkedin.com/in/adrianmroczek/"
+                        target="_blank"
+                      >
+                        /adrianmroczek
+                      </a>
+                    </p>
                   </div>
                 </div>
-                <div className="h-1 w-full bg-secondary-light" />
-                <div>
-                  <h2 className="text-xl text-primary-light">
-                    Technical Skills
-                  </h2>
-                  <MySkills small={true} />
+              </div>
+              <div className="h-1 w-full bg-secondary-light" />
+              <div>
+                <h2 className="text-xl text-primary-light">Technical Skills</h2>
+                <MySkills small={true} />
+              </div>
+              <div className="h-1 w-full bg-primary-dark" />
+              <div>
+                <h2 className="text-xl text-primary-light mb-8">Education</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-12">
+                  {educations.map((e: IEducation, index: number) => (
+                    <EducationCard key={index} education={e} />
+                  ))}
                 </div>
-                <div className="h-1 w-full bg-primary-dark" />
-                <div>
-                  <h2 className="text-xl text-primary-light mb-8">Education</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-12">
-                    {educations.map((e: IEducation, index: number) => (
-                      <EducationCard key={index} education={e} />
-                    ))}
-                  </div>
+              </div>
+              <div className="h-1 w-full bg-primary-dark" />
+              <div>
+                <h2 className="text-xl text-primary-light mb-8">
+                  Honors & Awards
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-12">
+                  {awards.map((e: IAward, index: number) => (
+                    <AwardCard key={index} award={e} />
+                  ))}
                 </div>
-                <div className="h-1 w-full bg-primary-dark" />
-                <div>
-                  <h2 className="text-xl text-primary-light mb-8">
-                    Honors & Awards
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-x-4 gap-y-12">
-                    {awards.map((e: IAward, index: number) => (
-                      <AwardCard key={index} award={e} />
-                    ))}
-                  </div>
-                </div>
-                <div className="h-1 w-full bg-primary-dark" />
-                <div>
-                  <h2 className="text-xl text-primary-light mb-8">Career</h2>
-                  <div className="relative flex flex-col">
-                    {jobs.map((e: IJob, index: number) => (
-                      <div key={index}>
-                        <CareerCard job={e} />
-                        {index !== jobs.length - 1 && (
-                          <div className="flex w-full justify-center">
-                            <div className="w-1.5 h-12 bg-secondary-light" />
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+              </div>
+              <div className="h-1 w-full bg-primary-dark" />
+              <div>
+                <h2 className="text-xl text-primary-light mb-8">Career</h2>
+                <div className="relative flex flex-col">
+                  {jobs.map((e: IJob, index: number) => (
+                    <div key={index}>
+                      <CareerCard job={e} />
+                      {index !== jobs.length - 1 && (
+                        <div className="flex w-full justify-center">
+                          <div className="w-1.5 h-12 bg-secondary-light" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

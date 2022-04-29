@@ -22,29 +22,27 @@ export default function Blogs({ blogs }: { blogs: IBlogs }) {
   }, [width, setItemsPerPage]);
 
   return (
-    <div>
+    <main className="page-container">
       <section>
-        <div className="relative w-full constellation">
-          <div id="recent-work" className="container relative mx-auto p-4">
-            <div className="py-12 sm:py-24">
-              <div className="flex flex-col items-center mb-12">
-                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
-                  <span className="text-secondary-light animate-pulse">
-                    {"> "}
-                  </span>
-                  Blog Posts
-                </h2>
-              </div>
-              <Pagination itemsPerPage={itemsPerPage}>
-                {blogs.map((e: IBlog, idx: number) => (
-                  <BlogCard key={idx} blog={e} />
-                ))}
-              </Pagination>
+        <div id="recent-blogs" className="content-container">
+          <div className="py-12 sm:py-24">
+            <div className="flex flex-col items-center mb-12">
+              <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest mr-3">
+                <span className="text-secondary-light animate-pulse">
+                  {"> "}
+                </span>
+                Blog Posts
+              </h2>
             </div>
+            <Pagination itemsPerPage={itemsPerPage}>
+              {blogs.map((e: IBlog, idx: number) => (
+                <BlogCard key={idx} blog={e} />
+              ))}
+            </Pagination>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

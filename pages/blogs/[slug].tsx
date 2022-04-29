@@ -6,27 +6,25 @@ import { IBlogs, IBlog } from "../../types";
 
 export default function Blog({ blog }: { blog: IBlog }) {
   return (
-    <div className="constellation">
+    <main className="page-container">
       <section>
-        <div className="relative w-full">
-          <div id="recent-work" className="container relative mx-auto p-4">
-            <div className="py-12 sm:py-24">
-              <div className="flex flex-col items-center mb-12">
-                <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
-                  <span className="text-secondary-light animate-pulse">
-                    {"> "}
-                  </span>
-                  {blog.title}
-                </h2>
-                <div className="w-full sm:max-w-5xl sm:mx-auto text-primary-light prose mt-12 prose-headings:text-alternative-light prose-a:text-alternative-light prose-strong:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
-                  <MDXRemote {...blog.contentMarkdown} />
-                </div>
+        <div id={blog.slug} className="content-container">
+          <div className="py-12 sm:py-24">
+            <div className="flex flex-col items-center mb-12">
+              <h2 className="text-primary-light text-center text-2xl drop-shadow-lg tracking-widest">
+                <span className="text-secondary-light animate-pulse">
+                  {"> "}
+                </span>
+                {blog.title}
+              </h2>
+              <div className="w-full sm:max-w-5xl sm:mx-auto text-primary-light prose mt-12 prose-headings:text-alternative-light prose-a:text-alternative-light prose-strong:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
+                <MDXRemote {...blog.contentMarkdown} />
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 
@@ -44,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           url
           fileName
         }
-        content 
+        content
       }
     }
   `;
