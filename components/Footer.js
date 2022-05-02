@@ -9,7 +9,7 @@ import NextLink from "../components/NextLink";
 export default function Footer() {
   return (
     <footer>
-      <div className="container mx-auto p-4 gap-4 text-primary-light text-sm bg-primary-dark w-full">
+      <div className="container mx-auto p-4 gap-4 text-primary-light text-sm bg-primary-dark">
         <div className="flex flex-col justify-between lg:flex-row sm:items-center gap-8 p-4">
           <div className="flex justify-center sm:justify-end items-center gap-4">
             <NextLink href="https://github.com/amroczeK" target="_blank">
