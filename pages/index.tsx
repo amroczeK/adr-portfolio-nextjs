@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import { GraphQLClient, gql } from "graphql-request";
 import Vanta from "../components/Vanta";
@@ -15,7 +16,6 @@ import {
   Stackoverflow,
 } from "@styled-icons/simple-icons";
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
 import { IBlogs, IProjects, IBlog, IProject } from "../types";
 
 export default function Home({
@@ -25,6 +25,19 @@ export default function Home({
   blogs: IBlogs;
   projects: IProjects;
 }) {
+  const [searchedBlogs, setSearchedBlogs] = useState<IBlogs>([]);
+  const [searchedProjects, setSearchedProjects] = useState<IProjects>([]);
+
+  const onSearchBlogs = (e: any) => {
+    const results: [] = e.map((e: any) => e.item);
+    setSearchedBlogs(results);
+  };
+
+  const onSearchProjects = (e: any) => {
+    const results: [] = e.map((e: any) => e.item);
+    setSearchedProjects(results);
+  };
+
   return (
     <div>
       <Head>
@@ -143,11 +156,19 @@ export default function Home({
                     Recent Posts
                   </h2>
                 </div>
-                <SearchBar placeholder="Search posts" />
+                <SearchBar
+                  context={blogs}
+                  placeholder="Search posts"
+                  setSearchResults={onSearchBlogs}
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                  {blogs.map((e: IBlog, idx: number) => (
-                    <BlogCard key={idx} blog={e} />
-                  ))}
+                  {searchedBlogs.length > 0
+                    ? searchedBlogs.map((e: IBlog, idx: number) => (
+                        <BlogCard key={idx} blog={e} />
+                      ))
+                    : blogs.map((e: IBlog, idx: number) => (
+                        <BlogCard key={idx} blog={e} />
+                      ))}
                 </div>
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/blogs">
@@ -174,11 +195,19 @@ export default function Home({
                     Recent Work
                   </h2>
                 </div>
-                <SearchBar placeholder="Search projects" />
+                <SearchBar
+                  context={projects}
+                  placeholder="Search projects"
+                  setSearchResults={onSearchProjects}
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-8 p-8">
-                  {projects.map((e: IProject, idx: number) => (
-                    <ProjectCard key={idx} project={e} primary={true} />
-                  ))}
+                  {searchedProjects.length > 0
+                    ? searchedProjects.map((e: IProject, idx: number) => (
+                        <ProjectCard key={idx} project={e} primary={true} />
+                      ))
+                    : projects.map((e: IProject, idx: number) => (
+                        <ProjectCard key={idx} project={e} primary={true} />
+                      ))}
                 </div>
                 <div className="flex justify-center items-center w-full">
                   <NextLink href="/projects">
@@ -203,7 +232,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const query = gql`
     query GetBlogsAndProjects {
-      blogs(first: 4, orderBy: createdAt_ASC) {
+      blogs(orderBy: createdAt_ASC) {
         title
         slug
         thumbnail {
@@ -213,8 +242,9 @@ export const getStaticProps: GetStaticProps = async () => {
         description {
           markdown
         }
+        searchKeywords
       }
-      projects(first: 4, orderBy: createdAt_ASC) {
+      projects(orderBy: createdAt_ASC) {
         title
         slug
         thumbnail {
@@ -224,6 +254,7 @@ export const getStaticProps: GetStaticProps = async () => {
         description {
           markdown
         }
+        searchKeywords
       }
     }
   `;
