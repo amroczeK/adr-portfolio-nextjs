@@ -1,23 +1,36 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, FC } from "react";
 import Fuse from "fuse.js";
+import { IBlogs, IProjects } from "../types";
 
-export default function Search({ placeholder = "", setSearchResults = (e) => {}, styles = "" }) {
+type Props = {
+  context: IBlogs | IProjects;
+  placeholder: string;
+  setSearchResults: any;
+  styles?: string;
+};
+
+const SearchBar: FC<Props> = ({
+  context,
+  placeholder,
+  setSearchResults,
+  styles,
+}) => {
   const [value, setValue] = useState("");
 
   const options = {
     includeScore: true,
-    keys: ["name", "category.name", "categories.name", "searchKeywords"],
+    keys: ["title", "searchKeywords"],
   };
 
-  const fuse = new Fuse([], options);
+  const fuse = new Fuse(context, options);
 
-  const onSearch = (e) => {
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+    const searchResults = fuse
+      .search(e.target.value)
+      .filter((item) => item.score !== undefined && item.score < 0.5);
+    setSearchResults(searchResults);
   };
-
-  useEffect(() => {
-    setSearchResults(fuse.search(value));
-  }, [value]);
 
   return (
     <div className={`flex justify-center w-full pb-8`}>
@@ -56,4 +69,6 @@ export default function Search({ placeholder = "", setSearchResults = (e) => {},
       </form>
     </div>
   );
-}
+};
+
+export default SearchBar;

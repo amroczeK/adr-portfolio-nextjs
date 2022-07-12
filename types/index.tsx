@@ -28,6 +28,7 @@ export interface IBlog {
   content: string;
   descMarkdown: MDXRemoteSerializeResult;
   contentMarkdown: MDXRemoteSerializeResult;
+  searchKeywords: string[];
 }
 
 export interface IBlogs extends Array<IBlog> {
@@ -44,9 +45,10 @@ export interface IProject {
   description: {
     markdown: string;
   };
-  content:  string;
+  content: string;
   descMarkdown: MDXRemoteSerializeResult;
   contentMarkdown: MDXRemoteSerializeResult;
+  searchKeywords: string[];
 }
 
 export interface IProjects extends Array<IProject> {
