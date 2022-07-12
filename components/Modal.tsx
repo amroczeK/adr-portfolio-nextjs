@@ -4,27 +4,16 @@ import { XIcon } from "@heroicons/react/solid";
 
 type Props = {
   children: React.ReactNode;
+  isOpen: boolean;
+  modalHandler: () => void;
 };
 
-const Modal: FC<Props> = ({ children }) => {
-  let [isOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
+const Modal: FC<Props> = ({ children, isOpen, modalHandler }) => {
 
   return (
     <>
-      <div onClick={openModal} className="cursor-pointer">
-        {children}
-      </div>
-
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-[101]" onClose={closeModal}>
+        <Dialog as="div" className="relative z-[101]" onClose={modalHandler}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -50,10 +39,10 @@ const Modal: FC<Props> = ({ children }) => {
               >
                 <Dialog.Panel className="w-full max-w-7xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className="flex flex-col">
-                      <XIcon
-                        onClick={closeModal}
-                        className="absolute top-0 right-0 h-7 w-7 cursor-pointer text-gray-500 hover:text-gray-700 mr-2 mt-2"
-                      />
+                    <XIcon
+                      onClick={modalHandler}
+                      className="absolute top-0 right-0 h-7 w-7 cursor-pointer text-gray-500 hover:text-gray-700 mr-2 mt-2"
+                    />
                     {children}
                   </div>
                 </Dialog.Panel>
