@@ -3,6 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { IProjects, IProject } from "../../types";
+import ImageExpand from "../../components/ImageExpand";
 
 export default function Project({ project }: { project: IProject }) {
   return (
@@ -18,7 +19,10 @@ export default function Project({ project }: { project: IProject }) {
                 {project.title}
               </h2>
               <div className="w-full sm:max-w-5xl sm:mx-auto text-primary-light prose mt-12 prose-headings:text-alternative-light prose-a:text-alternative-light prose-strong:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
-                <MDXRemote {...project.contentMarkdown} />
+                <MDXRemote
+                  components={{ img: ImageExpand }}
+                  {...project.contentMarkdown}
+                />
               </div>
             </div>
           </div>

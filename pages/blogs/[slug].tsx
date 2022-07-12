@@ -3,6 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { IBlogs, IBlog } from "../../types";
+import ImageExpand from "../../components/ImageExpand";
 
 export default function Blog({ blog }: { blog: IBlog }) {
   return (
@@ -18,7 +19,10 @@ export default function Blog({ blog }: { blog: IBlog }) {
                 {blog.title}
               </h2>
               <div className="w-full sm:max-w-5xl sm:mx-auto text-primary-light prose mt-12 prose-headings:text-alternative-light prose-a:text-alternative-light prose-strong:text-alternative-light bg-secondary-dark px-4 sm:px-6 py-8 rounded-lg">
-                <MDXRemote {...blog.contentMarkdown} />
+                <MDXRemote
+                  components={{ img: ImageExpand }}
+                  {...blog.contentMarkdown}
+                />
               </div>
             </div>
           </div>
