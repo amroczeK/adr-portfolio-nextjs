@@ -54,7 +54,7 @@ export default function Resume({
                 <h3 className="flex items-center text-sm text-left text-secondary-light tracking-widest pt-1">
                   Senior Software Engineer
                 </h3>
-                <p className="text-xs pt-2 text-alternative-light tracking-widest sm:max-w-[45ch] md:max-w-[55ch] lg:max-w-[80ch]">
+                <p className="text-sm pt-2 text-primary-light tracking-widest sm:max-w-[45ch] md:max-w-[55ch] lg:max-w-[80ch]">
                   As a highly skilled software engineer with 5 years of
                   experience, I have a diverse set of technical abilities that
                   includes a variety of programming languages, frameworks,
@@ -191,8 +191,10 @@ function CareerCard({ job }: { job: IJob }) {
                 Summary
               </span>
             </summary>
-            <div className="text-sm text-primary-light mt-2">
-              <MDXRemote {...job.summaryMarkdown} />
+            <div className="text-sm text-primary-light mt-2 prose max-w-fit">
+              <MDXRemote
+                {...job.summaryMarkdown}
+              />
             </div>
           </details>
           {job.accomplishments && (
@@ -202,7 +204,7 @@ function CareerCard({ job }: { job: IJob }) {
                   Accomplishments / Responsibilities
                 </span>
               </summary>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-disc list-inside text-alternative-light mt-2">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 list-disc list-inside text-alternative-light mt-2">
                 {job.accomplishments.map((e: string, index: number) => (
                   <li key={index}>
                     <span className="text-sm text-primary-light sm:max-w-[30ch] break-words">
