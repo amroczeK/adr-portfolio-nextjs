@@ -56,29 +56,47 @@ export default function Home({
                   <span className="text-secondary-light animate-pulse">.</span>
                 </h1>
                 <p className="text-primary-light drop-shadow-lg">
-                  I am an experienced{" "}
+                  As a highly skilled{" "}
                   <span className="text-secondary-light">
                     Software Engineer
                   </span>{" "}
-                  with a background in{" "}
-                  <span className="text-secondary-light">
-                    Full Stack Development
-                  </span>
-                  ,{" "}
-                  <span className="text-secondary-light">
-                    Network Engineering
-                  </span>{" "}
-                  and a keen interest in Cyber Security.
+                  with 5 years of experience, I have a diverse set of technical
+                  abilities that includes a variety of programming languages,
+                  frameworks, databases, and cloud platforms, allowing me to
+                  deliver high-quality, scalable, and maintainable software
+                  solutions.
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
-                  In my spare time I am proactively learning new technologies
-                  through e-learning platforms and developing side projects. I
-                  am currently focusing on upskilling myself in{" "}
+                  Proficient in multiple programming languages including{" "}
                   <span className="text-secondary-light">
-                    AWS, Azure, GCP, Kubernetes
+                    JavaScript, TypeScript, C#, and Java
+                  </span>
+                  . I am experienced with front-end libraries & frameworks such
+                  as{" "}
+                  <span className="text-secondary-light">
+                    ReactJs, NextJs, and Redux
+                  </span>
+                  . Skilled in backend frameworks like{" "}
+                  <span className="text-secondary-light">.NET, NodeJs</span> and
+                  familiar with microservice architecture. Experience with
+                  infrastructure tools like{" "}
+                  <span className="text-secondary-light">
+                    Terraform, Kubernetes, and Docker
                   </span>{" "}
-                  and the latest scalable web development and database
-                  technologies.
+                  and are adept in deploying applications on cloud platforms
+                  like{" "}
+                  <span className="text-secondary-light">
+                    Azure, AWS, and Google Cloud
+                  </span>
+                  . Proficient in databases like{" "}
+                  <span className="text-secondary-light">
+                    MongoDB, DynamoDB, and PostgreSQL
+                  </span>{" "}
+                  and familiar with CI/CD tools like{" "}
+                  <span className="text-secondary-light">
+                    Azure DevOps and Atlassian suite
+                  </span>
+                  .
                 </p>
                 <p className="text-primary-light drop-shadow-lg">
                   My portfolio website was developed with{" "}
