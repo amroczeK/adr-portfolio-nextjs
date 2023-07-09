@@ -192,9 +192,7 @@ function CareerCard({ job }: { job: IJob }) {
               </span>
             </summary>
             <div className="text-sm text-primary-light mt-2 prose max-w-fit">
-              <MDXRemote
-                {...job.summaryMarkdown}
-              />
+              <MDXRemote {...job.summaryMarkdown} />
             </div>
           </details>
           {job.accomplishments && (

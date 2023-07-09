@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const query = gql`
     query GetAllBlogs {
-      blogs {
+      blogs(orderBy: createdAt_DESC) {
         title
         slug
         thumbnail {

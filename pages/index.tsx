@@ -250,7 +250,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const query = gql`
     query GetBlogsAndProjects {
-      blogs(orderBy: createdAt_ASC) {
+      blogs(orderBy: createdAt_DESC) {
         title
         slug
         thumbnail {
@@ -262,7 +262,7 @@ export const getStaticProps: GetStaticProps = async () => {
         }
         searchKeywords
       }
-      projects(orderBy: createdAt_ASC) {
+      projects(orderBy: createdAt_DESC) {
         title
         slug
         thumbnail {

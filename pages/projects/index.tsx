@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const query = gql`
     query GetAllProjects {
-      projects {
+      projects(orderBy: createdAt_DESC) {
         title
         slug
         thumbnail {

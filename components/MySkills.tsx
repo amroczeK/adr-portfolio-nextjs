@@ -27,10 +27,11 @@ import {
   Graphql,
   Newrelic,
   Pagerduty,
-  Nextdotjs
+  Nextdotjs,
+  Nestjs,
 } from "@styled-icons/simple-icons";
 
-export default function ({small = false} : {small?: Boolean}) {
+export default function ({ small = false }: { small?: Boolean }) {
   return (
     <>
       <details open className="p-4">
@@ -49,72 +50,35 @@ export default function ({small = false} : {small?: Boolean}) {
               <Javascript className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Javascript</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Expert
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Typescript className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Typescript</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Graphql className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">GraphQL</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Terraform className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Terraform</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Ansible className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Ansible</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
@@ -125,70 +89,35 @@ export default function ({small = false} : {small?: Boolean}) {
               </div>
               <h3 className="text-primary-light tracking-widest">C Sharp</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Java className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Java</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Python className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Python</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Scala className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Scala</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Advanced Beginner
-            </p>
+            <AdvancedBeginner />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Css3 className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">CSS</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Proficient />
           </div>
         </div>
       </details>
@@ -208,77 +137,42 @@ export default function ({small = false} : {small?: Boolean}) {
               <ReactLogo className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">React.js</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Expert
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Nodedotjs className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Node.js</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Expert
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Express className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Express.js</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Expert
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Nextdotjs className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Next.js</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+            <Proficient />
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2 items-center mb-1">
+              <Nestjs className="w-6 h-6 text-alternative-light" />
+              <h3 className="text-primary-light tracking-widest">NestJS</h3>
             </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Spring className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Spring</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -288,14 +182,7 @@ export default function ({small = false} : {small?: Boolean}) {
                 Dotnet Core
               </h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
@@ -304,15 +191,7 @@ export default function ({small = false} : {small?: Boolean}) {
                 Tailwindcss
               </h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Proficient />
           </div>
         </div>
       </details>
@@ -335,57 +214,28 @@ export default function ({small = false} : {small?: Boolean}) {
                 AWS
               </h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Microsoftazure className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Azure</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Googlecloud className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">GCP</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Vercel className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Vercel</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
@@ -406,13 +256,7 @@ export default function ({small = false} : {small?: Boolean}) {
               <Pagerduty className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Pagerduty</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Advanced Beginner
-            </p>
+            <AdvancedBeginner />
           </div>
         </div>
       </details>
@@ -432,29 +276,14 @@ export default function ({small = false} : {small?: Boolean}) {
               <Docker className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Docker</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Proficient />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Kubernetes className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Kubernetes</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
         </div>
       </details>
@@ -474,77 +303,113 @@ export default function ({small = false} : {small?: Boolean}) {
               <Amazondynamodb className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">DynamoDB</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Mongodb className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">MongoDB</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Postgresql className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">PostgreSQL</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Competent
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Firebase className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">Firebase</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Competent />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center mb-1">
               <Mysql className="w-6 h-6 text-alternative-light" />
               <h3 className="text-primary-light tracking-widest">MySQL</h3>
             </div>
-            <div className="flex gap-1 w-40 bg-primary-dark p-1">
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3" />
-              <div className="bg-secondary-light w-7 h-3 animate-pulse" />
-            </div>
-            <p className="text-xs text-primary-light tracking-widest text-right">
-              Proficient
-            </p>
+            <Competent />
           </div>
         </div>
       </details>
+    </>
+  );
+}
+
+function Beginner() {
+  return (
+    <>
+      <div className="flex gap-1 w-40 bg-primary-dark p-1">
+        <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+      </div>
+      <p className="text-xs text-primary-light tracking-widest text-right">
+        Beginner
+      </p>
+    </>
+  );
+}
+
+function AdvancedBeginner() {
+  return (
+    <>
+      <div className="flex gap-1 w-40 bg-primary-dark p-1">
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+      </div>
+      <p className="text-xs text-primary-light tracking-widest text-right">
+        Advanced Beginner
+      </p>
+    </>
+  );
+}
+
+function Competent() {
+  return (
+    <>
+      <div className="flex gap-1 w-40 bg-primary-dark p-1">
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+      </div>
+      <p className="text-xs text-primary-light tracking-widest text-right">
+        Competent
+      </p>
+    </>
+  );
+}
+
+function Proficient() {
+  return (
+    <>
+      <div className="flex gap-1 w-40 bg-primary-dark p-1">
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+      </div>
+      <p className="text-xs text-primary-light tracking-widest text-right">
+        Proficient
+      </p>
+    </>
+  );
+}
+
+function Expert() {
+  return (
+    <>
+      <div className="flex gap-1 w-40 bg-primary-dark p-1">
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3" />
+        <div className="bg-secondary-light w-7 h-3 animate-pulse" />
+      </div>
+      <p className="text-xs text-primary-light tracking-widest text-right">
+        Expert
+      </p>
     </>
   );
 }
