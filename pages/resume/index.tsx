@@ -55,11 +55,11 @@ export default function Resume({
                   Senior Software Engineer
                 </h3>
                 <p className="text-sm pt-2 text-primary-light tracking-widest sm:max-w-[45ch] md:max-w-[55ch] lg:max-w-[80ch]">
-                  As a highly skilled software engineer with 5 years of
-                  experience, I have a diverse set of technical abilities that
-                  includes a variety of programming languages, frameworks,
-                  databases, and cloud platforms, allowing me to deliver
-                  high-quality, scalable, and maintainable software solutions.
+                  Skilled full-stack engineer with 6 years' experience. Proven
+                  success in delivering projects and collaborating with
+                  cross-functional teams. Expert in web applications,
+                  microservices, and event-driven architectures. Proficient in
+                  various languages, frameworks, and cloud platforms.
                 </p>
               </div>
               <div
